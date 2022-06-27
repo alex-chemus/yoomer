@@ -1,0 +1,13 @@
+@import '../../index.scss';
+
+.CommonFeed {
+  &[data-center] {
+    width: 100%;
+    height: 100%;
+    @include flex(center, center);
+  }
+}
+
+.post {
+  margin-bottom: var(--size-5);
+}

@@ -1,0 +1,33 @@
+@import '../../index.scss';
+
+.field {
+  @include flex(flex-start, flex-end, column);
+  gap: var(--size-3);
+
+  [data-primary] {
+    background-color: var(--bg-color-1);
+  }
+
+  [data-secondary] {
+    background-color: var(--bg-color-2);
+  }
+
+  textarea {
+    width: 100%;
+    padding: var(--size-3);
+    color: var(--primary-color-2);
+    //background-color: var(--bg-color-1);
+    height: 100px;
+    resize: none;
+  }
+
+  button {
+    @include btn;
+    transition: var(--fast-in);
+    
+    &:hover {
+      background-color: var(--accent-color);
+      color: var(--gray-2);
+    }
+  }
+}

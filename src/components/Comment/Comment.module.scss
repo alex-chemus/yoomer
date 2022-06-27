@@ -1,0 +1,53 @@
+@import '../../index.scss';
+
+.comment {
+  background-color: var(--bg-color-1);
+  border-radius: var(--radius-2);
+  box-shadow: var(--shadow-1);
+  padding: var(--size-3);
+  //margin-bottom: var(--size-4);
+
+  [data-mb] {
+    margin-bottom: var(--size-3);
+
+    p {
+      max-width: 100%;
+    }
+  }
+
+  [data-btn] {
+    @include btn;
+    //background-color: var(--bg-color-1);
+    @include highlighBtn;
+  }
+
+  [data-btn="1"] {
+    background-color: var(--bg-color-1);
+  }
+
+  [data-btn="2"] {
+    background-color: var(--bg-color-2);
+  }
+}
+
+.title {
+  @include flex(space-between, baseline);
+  margin-bottom: var(--size-3);
+}
+
+.replies {
+  margin-top: var(--size-8);
+  margin-left: var(--size-8);
+}
+
+.showReplies {
+  transform: rotate(180deg);
+}
+
+.reply {
+  margin-right: var(--size-2);
+}
+
+.replyComment {
+  margin-bottom: var(--size-4);
+}

@@ -1,0 +1,8 @@
+https://oauth.reddit.com/api/v1/me.json - общая инфа о юзере
+https://oauth.reddit.com/[sorting].json - фид по бесту (первые 25 результатов)
+https://oauth.reddit.com/[sorting].json?after=AFTERLINK - фид по бесту (+ hot, new, rising, controversial)
+https://www.reddit.com/r/[subreddit]/[sorting].json
+https://www.reddit.com/r/[subreddit]/about.json
+https://oauth.reddit.com/user/Alex_chemus/(saved|submitted|comments).json - инфа о юзере
+/r/subreddit]/comments/article - комменты к посту
+/api/search_subreddits - поиск сабреддитов

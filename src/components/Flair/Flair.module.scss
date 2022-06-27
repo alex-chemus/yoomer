@@ -1,0 +1,22 @@
+@import '../../index.scss';
+
+.flair {
+  padding: var(--size-1);
+  @include flex(center, center);
+  gap: 5px;
+  width: fit-content;
+  border-radius: var(--radius-2);
+  flex-shrink: 2;
+  font-size: var(--font-size-0);
+
+  // forum code
+  //max-width: max(0px, calc((100% - 120px)*999));
+  //overflow: hidden;
+
+  span {
+    //max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

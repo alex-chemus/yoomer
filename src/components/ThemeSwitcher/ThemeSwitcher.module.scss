@@ -1,0 +1,61 @@
+@import '../../index.scss';
+
+.switcher {
+  //width: 2em;
+  width: 60px;
+  height: 30px;
+  //height: 1em;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  transition: 
+    all .15s ease-out,
+    background-color .075s ease-out;
+  padding-inline: 1px;
+  background-color: var(--primary-color-1);
+
+  &:hover {
+    box-shadow: var(--shadow-1);
+  }
+}
+
+.toggle {
+  height: 28px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transition: 
+    color, background-color .15s ease-out,
+    transform .25s ease-out;
+  @include flex(center, center);
+  background-color: var(--bg-color-1);
+  color: var(--primary-color-1);
+}
+
+/*.sun {}
+
+.moon {}*/
+
+// dark theme
+:root[data-theme="dark"] {
+  .toggle {
+    transform: translate(29px);
+  }
+
+  .sun {
+    display: none;
+  }
+}
+
+// light theme
+:root[data-theme="light"] {
+  .moon {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .switcher,
+  .toggle {
+    transition: none;
+  }
+}
