@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -18,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/alex-chemus/yoomer/issues"
   },
-  "homepage": "https://github.com/alex-chemus/yoomer#readme",
+  "homepage": "https://alex-chemus.github.io/yoomer",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.4",
@@ -46,6 +48,7 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "sass": "^1.51.0",
     "sass-loader": "^12.6.0",
     "typescript-plugin-css-modules": "^3.4.0"
