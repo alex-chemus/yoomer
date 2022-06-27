@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/alex-chemus/yoomer/issues"
   },
-  "homepage": "https://alex-chemus.github.io/yoomer/",
+  "homepage": "https://alex-chemus.github.io/yoomer",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.4",
