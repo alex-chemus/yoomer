@@ -4,6 +4,7 @@ import App from './App.tsx';
 import RedirectURI from './views/RedirectURI/RedirectURI.tsx';
 import {
   BrowserRouter,
+  HashRouter,
   Routes,
   Route
 } from 'react-router-dom'
@@ -75,7 +76,7 @@ createRoot(document.getElementById('root'))
   .render(
     <React.StrictMode>
       <Provider store={store}>
-        <BrowserRouter basename='/'>
+        <BrowserRouter>
           <Routes>
 
             <Route path="/" element={<App />} />
