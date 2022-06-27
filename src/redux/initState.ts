@@ -2,11 +2,12 @@ import { State } from "../utils/types"
 
 const initState: State = {
   clientId: '_3z7Jj5krcWsmoEexP0f3Q',
-  //clientSecret: 'Q4MvDxIU9q77HINPVKbTL6IDUn_C6Q',
-  redirectUri: 'https://cloned-reddit.herokuapp.com/redirected',
+  //redirectUri: 'https://cloned-reddit.herokuapp.com/redirected',
+  redirectUri: 'https://alex-chemus.github.io/yoomer/redirected',
   accessToken: null,
   baseUrl: 'https://oauth.reddit.com',
   isFetchingToken: false,
+  accessApi: 'https://reddit-access-api.herokuapp.com/'
 }
 
 export default initState

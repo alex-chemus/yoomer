@@ -3,7 +3,8 @@ export interface State {
   redirectUri: string,
   accessToken: null | string,
   baseUrl: string,
-  isFetchingToken: boolean
+  isFetchingToken: boolean,
+  accessApi: string
 }
 
 export interface Action {

@@ -17,8 +17,9 @@ export const fetchAccessToken = (refreshToken: string | null) => {
     const state = getState()
     //console.log('fetch access token. is fetching:', state.isFetchingToken)
     if (state.isFetchingToken) return
+
     dispatch(setFetchingToken(true))
-    fetch('/get-access-token', {
+    fetch(state.accessApi, {
       method: 'POST',
       body: JSON.stringify({
         grant_type: 'refresh_token',
