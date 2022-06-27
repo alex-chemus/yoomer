@@ -7,7 +7,8 @@ const initState: State = {
   accessToken: null,
   baseUrl: 'https://oauth.reddit.com',
   isFetchingToken: false,
-  accessApi: 'https://reddit-access-api.herokuapp.com/'
+  //accessApi: 'https://reddit-access-api.herokuapp.com/'
+  accessApi: 'https://localhost:4000'
 }
 
 export default initState

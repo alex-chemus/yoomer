@@ -17,8 +17,8 @@ export const fetchAccessToken = (refreshToken: string | null) => {
     const state = getState()
     //console.log('fetch access token. is fetching:', state.isFetchingToken)
     if (state.isFetchingToken) return
-
     dispatch(setFetchingToken(true))
+
     fetch(state.accessApi, {
       method: 'POST',
       body: JSON.stringify({
@@ -44,7 +44,7 @@ export const fetchAccessToken = (refreshToken: string | null) => {
         setTimeout(() => dispatch(fetchAccessToken(refreshToken)), expTime)
       })
       .catch(err => {
-        console.log(err)
+        console.log(err, refreshToken)
         //dispatch({ type: 'SET_ACCESS_TOKEN', payload: 'error' })
         dispatch(setAccessToken('error'))
         dispatch(setFetchingToken(false))
