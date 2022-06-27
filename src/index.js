@@ -76,7 +76,7 @@ createRoot(document.getElementById('root'))
   .render(
     <React.StrictMode>
       <Provider store={store}>
-        <HashRouter>
+        <BrowserRouter basename='/'>
           <Routes>
 
             <Route path="/" element={<App />} />
@@ -102,7 +102,7 @@ createRoot(document.getElementById('root'))
             } />
 
           </Routes>
-        </HashRouter>
+        </BrowserRouter>
       </Provider>
     </React.StrictMode>
   )
