@@ -105,3 +105,5 @@ createRoot(document.getElementById('root'))
       </Provider>
     </React.StrictMode>
   )
+
+console.log('should mount')
