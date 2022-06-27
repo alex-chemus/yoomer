@@ -76,7 +76,7 @@ createRoot(document.getElementById('root'))
   .render(
     <React.StrictMode>
       <Provider store={store}>
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <HashRouter basename={process.env.PUBLIC_URL}>
           <Routes>
 
             <Route path="/" element={<App />} />
@@ -102,9 +102,9 @@ createRoot(document.getElementById('root'))
             } />
 
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </Provider>
     </React.StrictMode>
   )
 
-console.log('should mount')
+console.log('should mount', process.env.PUBLIC_URL)
