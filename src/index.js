@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 import RedirectURI from './views/RedirectURI/RedirectURI.tsx';
 import {
-  HashRouter,
+  BrowserRouter,
   Routes,
   Route
 } from 'react-router-dom'
@@ -75,7 +75,7 @@ createRoot(document.getElementById('root'))
   .render(
     <React.StrictMode>
       <Provider store={store}>
-        <HashRouter>
+        <BrowserRouter>
           <Routes>
 
             <Route path="/" element={<App />} />
@@ -101,7 +101,7 @@ createRoot(document.getElementById('root'))
             } />
 
           </Routes>
-        </HashRouter>
+        </BrowserRouter>
       </Provider>
     </React.StrictMode>
   )
