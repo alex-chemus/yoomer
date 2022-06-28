@@ -35,6 +35,7 @@ const store = createStore(reducer, composeEnhancers(
 ))
 
 const path = window.location.pathname
+console.log(path)
 // если нет рефреш токена, редиректнуть на аус пейдж
 // однако если вернуло со страницы редиректа, снова редиректит
 if (!localStorage.getItem('refresh_token') && !/^\/redirected/.test(path)) {
@@ -106,5 +107,3 @@ createRoot(document.getElementById('root'))
       </Provider>
     </React.StrictMode>
   )
-
-console.log('should mount', process.env.PUBLIC_URL)
