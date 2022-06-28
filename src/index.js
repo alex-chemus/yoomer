@@ -35,10 +35,11 @@ const store = createStore(reducer, composeEnhancers(
 ))
 
 const path = window.location.pathname
+const href = window.location.href
 alert(path)
 // если нет рефреш токена, редиректнуть на аус пейдж
 // однако если вернуло со страницы редиректа, снова редиректит
-if (!localStorage.getItem('refresh_token') && !/\/yoomer\/\#\/redirected/.test(path)) {
+if (!localStorage.getItem('refresh_token') && !/\/yoomer\/\#\/redirected/.test(href)) {
 //if (!localStorage.getItem('refresh_token') && path !== '/yoomer/#/redirected') {
 //if (!localStorage.getItem('access_token')) { // update: теперь проверяется акцес токен
   const { clientId, redirectUri } = store.getState()
