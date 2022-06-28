@@ -34,9 +34,7 @@ const store = createStore(reducer, composeEnhancers(
   applyMiddleware(thunk)
 ))
 
-const path = window.location.pathname
 const href = window.location.href
-alert(path)
 // если нет рефреш токена, редиректнуть на аус пейдж
 // однако если вернуло со страницы редиректа, снова редиректит
 if (!localStorage.getItem('refresh_token') && !/\/yoomer\/\#\/redirected/.test(href)) {
