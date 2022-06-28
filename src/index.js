@@ -37,7 +37,7 @@ const store = createStore(reducer, composeEnhancers(
 const path = window.location.pathname
 // если нет рефреш токена, редиректнуть на аус пейдж
 // однако если вернуло со страницы редиректа, снова редиректит
-/*if (!localStorage.getItem('refresh_token') && !/^\/redirected/.test(path)) {
+if (!localStorage.getItem('refresh_token') && !/^\/redirected/.test(path)) {
 //if (!localStorage.getItem('access_token')) { // update: теперь проверяется акцес токен
   const { clientId, redirectUri } = store.getState()
   // todo: remove extra permissions
@@ -59,7 +59,7 @@ const path = window.location.pathname
   ]
 
   window.location.href = `https://www.reddit.com/api/v1/authorize?${params.join('&')}`
-}*/
+}
 
 // установить тему в :root[data-theme]
 
