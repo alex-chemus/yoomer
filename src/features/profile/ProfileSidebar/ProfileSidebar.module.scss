@@ -21,6 +21,7 @@
   @include flex(flex-start, center, column);
   @include flex-gap(bottom, var(--size-3));
   padding: var(--size-7);
+  overflow: hidden;
 
   /*@include lg {
     display: none;

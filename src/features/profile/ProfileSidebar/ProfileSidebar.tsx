@@ -27,7 +27,7 @@ const ProfileSidebar: React.FC<ProfileSidebarProps> = ({ username }) => {
   }), [token])
 
   return (
-    <aside style={{border: 'pink'}} className={classes.profileSidebar}>
+    <aside className={classes.profileSidebar}>
       <h5 className={classes.username}>{username}</h5>
       {iconImg && (
         <img src={iconImg} alt="" />
