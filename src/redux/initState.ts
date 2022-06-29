@@ -1,6 +1,7 @@
-import { State } from "../utils/types"
+//import { State } from "../utils/types"
+import IState from "./IState"
 
-const initState: State = {
+const initState: IState = {
   clientId: '_3z7Jj5krcWsmoEexP0f3Q',
   //redirectUri: 'https://cloned-reddit.herokuapp.com/redirected',
   redirectUri: 'https://alex-chemus.github.io/yoomer/redirected',

@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from "react"
 import { useSelector } from "react-redux"
 import useAccessToken from "../../hooks/useAccessToken"
-import { State, ISubredditCreds } from "../../utils/types"
+import { ISubredditCreds } from "../../utils/types"
+import IState from '@redux/IState'
 import trimSubredditCreds from '../../utils/trimSubredditCreds'
 import { Link } from "react-router-dom"
 import useFetch from "../../hooks/useFetch"
@@ -11,7 +12,7 @@ import classes from './Communities.module.scss'
 
 const Communities: React.FC = () => {
   const token = useAccessToken()
-  const baseUrl = useSelector((state: State) => state.baseUrl)
+  const baseUrl = useSelector((state: IState) => state.baseUrl)
   const [subreddits, setSubreddits] = useState<ISubredditCreds[]>([])
   const afterRef = useRef<string>('')
   const isAll = useRef(false)

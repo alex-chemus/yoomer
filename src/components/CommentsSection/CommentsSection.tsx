@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import useAccessToken from '../../hooks/useAccessToken'
-import { State } from '../../utils/types'
+//import { State } from '../../utils/types'
+import IState from '@redux/IState'
 import { Properties } from 'csstype'
 import classes from './CommentsSection.module.scss'
 
@@ -17,7 +18,7 @@ interface CommentsSectionProps {
 
 const CommentsSection: React.FC<CommentsSectionProps> = ({ link, subreddit }) => {
   const token = useAccessToken()
-  const baseUrl = useSelector((state: State) => state.baseUrl)
+  const baseUrl = useSelector((state: IState) => state.baseUrl)
 
   const [comments, setComments] = useState<any[]>([])
   const [more, setMore] = useState<any>()

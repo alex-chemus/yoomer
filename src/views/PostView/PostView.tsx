@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom'
 import useAccessToken from '../../hooks/useAccessToken'
 import useFetch from '../../hooks/useFetch'
 import trimPost from '../../utils/trimPost'
-import { IPost, State } from '../../utils/types'
-import classes from './PostView.module.scss';
+import { IPost } from '../../utils/types'
+//import IState from '@redux/IState'
+import classes from './PostView.module.scss'
 
 import CommentsSection from '../../components/CommentsSection/CommentsSection'
 import PostContent from '../../components/PostContent/PostContent'

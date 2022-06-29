@@ -1,17 +1,3 @@
-export interface State {
-  clientId: string,
-  redirectUri: string,
-  accessToken: null | string,
-  baseUrl: string,
-  isFetchingToken: boolean,
-  accessApi: string
-}
-
-export interface Action {
-  type: string,
-  payload?: any
-}
-
 export type Sort = 'best' | 'hot' | 'new' | 'rising' | 'controversial'
 
 export interface IPost {

@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react'
 import useAccessToken from '../../hooks/useAccessToken'
 import useFetch from '../../hooks/useFetch'
-import { Sort, IPost, State } from '../../utils/types'
+import { Sort, IPost } from '../../utils/types'
+import IState from '@redux/IState'
 import trimPost from '../../utils/trimPost'
 import { useSelector } from 'react-redux'
 import classes from './CommonFeed.module.scss'
@@ -16,7 +17,7 @@ interface CommonFeedProps {
 
 const CommonFeed: React.FC<CommonFeedProps> = ({ sort }) => {
   const token = useAccessToken()
-  const baseUrl = useSelector((state: State) => state.baseUrl)
+  const baseUrl = useSelector((state: IState) => state.baseUrl)
 
   const [posts, setPosts] = useState<IPost[]>([])
   const afterRef = useRef<string>('')

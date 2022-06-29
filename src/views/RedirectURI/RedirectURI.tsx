@@ -2,7 +2,8 @@ import React, { useEffect } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import utf8_to_b64 from '../../utils/urf8_to_b64'
 import { useDispatch, useSelector } from 'react-redux'
-import { State } from '../../utils/types'
+//import { State } from '../../utils/types'
+import IState from '@redux/IState'
 
 const RedirectURI: React.FC = () => {
   const [searchParams] = useSearchParams()
@@ -10,9 +11,9 @@ const RedirectURI: React.FC = () => {
 
   //alert('redirected')
 
-  const uri = useSelector((state: State) => state.redirectUri)
-  const clientId = useSelector((state: State) => state.clientId)
-  const accessApi = useSelector((state: State) => state.accessApi)
+  const uri = useSelector((state: IState) => state.redirectUri)
+  const clientId = useSelector((state: IState) => state.clientId)
+  const accessApi = useSelector((state: IState) => state.accessApi)
   //const clientSecret = useSelector((state: State) => state.clientSecret)
   const dispatch = useDispatch()
 

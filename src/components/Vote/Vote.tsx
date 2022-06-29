@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { State } from '../../utils/types'
+//import { State } from '../../utils/types'
+import IState from '@redux/IState'
 import { useSelector } from 'react-redux'
 import useAccessToken from '../../hooks/useAccessToken'
 import classes from './Vote.module.scss'
@@ -12,7 +13,7 @@ interface VoteProps {
 }
 
 const Vote: React.FC<VoteProps> = ({ likes, name, bgcolor = 'var(--bg-color-1)' }) => {
-  const url = useSelector((state: State) => state.baseUrl)
+  const url = useSelector((state: IState) => state.baseUrl)
   const token = useAccessToken()
   const [liked, setLiked] = useState<boolean | null>(likes)
 

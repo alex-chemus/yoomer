@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
-import { IPost, State } from '../../utils/types'
+import { IPost } from '../../utils/types'
+//import IState from '@redux/IState'
 import classes from './Post.module.scss'
 import { Link } from 'react-router-dom'
 

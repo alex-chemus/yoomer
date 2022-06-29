@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 //import { State } from '../utils/types'
 import IState from '@redux/IState'
-import { fetchAccessToken } from '../redux/actionsCreators'
+//import { fetchAccessToken } from '../redux/actionsCreators'
+import { fetchAccessToken } from '@redux/actionsCreators'
 
 const useAccessToken = () => {
   const refreshToken = localStorage.getItem('refresh_token')

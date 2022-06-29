@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import useAccessToken from '../../hooks/useAccessToken'
-import { State } from '../../utils/types'
+//import { State } from '../../utils/types'
+import IState from '@redux/IState'
 import classes from './SaveButton.module.scss'
 
 interface SaveButtonPorps {
@@ -12,7 +13,7 @@ interface SaveButtonPorps {
 const SaveButton: React.FC<SaveButtonPorps> = (props) => {
   const token = useAccessToken()
   const [saved, setSaved] = useState<boolean>(props.saved)
-  const baseUrl = useSelector((state: State) => state.baseUrl)
+  const baseUrl = useSelector((state: IState) => state.baseUrl)
 
   const onClick = async () => {
     const action = saved ? 'unsave' : 'save'

@@ -1,7 +1,12 @@
 import initState from "./initState"
-import { Action, State } from '../utils/types'
+import IState from "@redux/IState"
 
-const reducer = (state=initState, action: Action): State => {
+interface IAction {
+  type: string,
+  payload?: any
+}
+
+const reducer = (state=initState, action: IAction): IState => {
   switch (action.type) {
     case 'SET_ACCESS_TOKEN':
       return {

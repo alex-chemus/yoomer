@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import useAccessToken from '../../hooks/useAccessToken'
 import useFetch from '../../hooks/useFetch'
-import { IPost, State, Sort } from '../../utils/types'
+import { IPost, Sort } from '../../utils/types'
 import trimPost from '../../utils/trimPost'
 import classes from './SubredditFeed.module.scss'
 

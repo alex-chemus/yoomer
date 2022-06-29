@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import useAccessToken from '../../hooks/useAccessToken'
-import { State, ProfileSortBar } from '../../utils/types'
+import { ProfileSortBar } from '../../utils/types'
+import IState from '@redux/IState'
 import trimPost from '../../utils/trimPost'
 import Post from '../Post/Post'
 import ProfileComment from '../ProfileComment/ProfileComment'
@@ -22,7 +23,7 @@ interface ProfileFeedProps {
 
 const ProfileFeed: React.FC<ProfileFeedProps> = ({ sort, username }) => {
   const token = useAccessToken()
-  const baseUrl = useSelector((state: State) => state.baseUrl)
+  const baseUrl = useSelector((state: IState) => state.baseUrl)
   const afterRef = useRef<string | null>(null)
   const [data, setData] = useState<any[]>([])
   const isAll = useRef(false)

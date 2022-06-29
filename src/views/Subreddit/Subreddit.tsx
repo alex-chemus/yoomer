@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import useAccessToken from "../../hooks/useAccessToken"
 import useFetch from "../../hooks/useFetch"
-import { State, ISubreddit, Sort } from "../../utils/types"
+import { ISubreddit, Sort } from "../../utils/types"
+//import IState from '@redux/IState'
 import trimSubreddit from "../../utils/trimSubreddit"
 import classes from './Subreddit.module.scss'
 

@@ -2,7 +2,8 @@ import { Properties } from "csstype"
 import React, { useRef } from "react"
 import { useSelector } from "react-redux"
 import useAccessToken from "../../hooks/useAccessToken"
-import { State } from "../../utils/types"
+//import { State } from "../../utils/types"
+import IState from '@redux/IState'
 import classes from './CommentField.module.scss'
 
 interface CommentFieldProps {
@@ -13,7 +14,7 @@ interface CommentFieldProps {
 
 const CommentField: React.FC<CommentFieldProps> = ({ id, onSubmit, bgcolor = 1 }) => {
   const token = useAccessToken()
-  const baseUrl = useSelector((state: State) => state.baseUrl)
+  const baseUrl = useSelector((state: IState) => state.baseUrl)
   const ref = useRef<HTMLTextAreaElement>(null)
 
   const submit = () => {

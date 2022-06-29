@@ -1,5 +1,12 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@redux/*": ["./redux/*"],
+      "@views/*": ["./views/*"],
+      "@shared/*": ["./shared/*"],
+      "@features/*": ["./features/*"]
+    },
     "target": "es5",
     "lib": [
       "dom",
