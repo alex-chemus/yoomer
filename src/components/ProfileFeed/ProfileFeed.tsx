@@ -1,14 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
-import useAccessToken from '../../hooks/useAccessToken'
 import { ProfileSortBar } from '../../utils/types'
 import IState from '@redux/IState'
 import trimPost from '../../utils/trimPost'
 import Post from '../Post/Post'
 import ProfileComment from '../ProfileComment/ProfileComment'
 import trimProfileComment from '../../utils/trimProfileComment'
-import Observer from '../Observer/Observer'
 import classes from './ProfileFeed.module.scss'
+
+import { Observer } from '@shared/components'
+import { useAccessToken } from '@shared/hooks'
 
 /*
 overview -> overview

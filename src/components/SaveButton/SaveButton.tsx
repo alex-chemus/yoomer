@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import useAccessToken from '../../hooks/useAccessToken'
-//import { State } from '../../utils/types'
 import IState from '@redux/IState'
 import classes from './SaveButton.module.scss'
+
+import { useAccessToken } from '@shared/hooks'
 
 interface SaveButtonPorps {
   saved: boolean,

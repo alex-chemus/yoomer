@@ -1,18 +1,17 @@
 import React, { useEffect, useState, useRef } from 'react'
-import useAccessToken from '../../hooks/useAccessToken'
-import useFetch from '../../hooks/useFetch'
-import { Sort, IPost } from '../../utils/types'
+import { IPost } from '../../utils/types'
 import IState from '@redux/IState'
 import trimPost from '../../utils/trimPost'
 import { useSelector } from 'react-redux'
 import classes from './CommonFeed.module.scss'
 
+import { ISort, Loader, Observer } from '@shared/components'
+import { useFetch, useAccessToken } from '@shared/hooks'
+
 import Post from '../Post/Post'
-import Loader from '../Loader/Loader'
-import Observer from '../Observer/Observer'
 
 interface CommonFeedProps {
-  sort: Sort
+  sort: ISort
 }
 
 const CommonFeed: React.FC<CommonFeedProps> = ({ sort }) => {

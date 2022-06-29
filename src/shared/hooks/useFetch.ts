@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-//import { State } from "../utils/types";
 import IState from "@redux/IState";
 import useAccessToken from './useAccessToken'
 

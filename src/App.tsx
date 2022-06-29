@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 import classes from './App.module.scss'
-import { Sort } from './utils/types';
 
 import CommonFeed from './components/CommonFeed/CommonFeed';
-import SortBar from './components/SortBar/SortBar';
 import SubredditsSidebar from './components/SubredditsSidebar/SubredditsSidebar';
-import Nav from './components/Nav/Nav';
+
+import { ISort, SortBar, Nav } from '@shared/components';
 
 const App: React.FC = () => {
-  const [sort, setSort] = useState<Sort>('best')
+  const [sort, setSort] = useState<ISort>('best')
 
-  const changeSort = (str: Sort) => {
+  const changeSort = (str: ISort) => {
     setSort(str)
   }
 

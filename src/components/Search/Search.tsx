@@ -1,8 +1,9 @@
 import React, { useRef, useState } from "react"
-import useFetch from "../../hooks/useFetch"
 import { Properties } from "csstype"
 import { Link } from "react-router-dom"
 import classes from './Search.module.scss'
+
+import { useFetch } from "@shared/hooks"
 
 const Search: React.FC = () => {
   const [input, setInput] = useState<string>('')

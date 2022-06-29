@@ -1,17 +1,16 @@
 import React, { useEffect, useState, useRef } from 'react'
-import useAccessToken from '../../hooks/useAccessToken'
-import useFetch from '../../hooks/useFetch'
-import { IPost, Sort } from '../../utils/types'
+import { IPost } from '../../utils/types'
 import trimPost from '../../utils/trimPost'
 import classes from './SubredditFeed.module.scss'
 
 import Post from '../Post/Post'
-import Observer from '../Observer/Observer'
-import Loader from '../Loader/Loader'
+
+import { Observer, Loader, ISort } from '@shared/components'
+import { useAccessToken, useFetch } from '@shared/hooks'
 
 interface SubredditFeedProps {
   subreddit: string,
-  sort: Sort
+  sort: ISort
 }
 
 const SubredditFeed: React.FC<SubredditFeedProps> = ({ subreddit, sort }) => {

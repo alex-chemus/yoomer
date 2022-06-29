@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import useAccessToken from '../../hooks/useAccessToken'
-import useFetch from '../../hooks/useFetch'
 import trimPost from '../../utils/trimPost'
 import { IPost } from '../../utils/types'
 //import IState from '@redux/IState'
@@ -10,12 +8,11 @@ import classes from './PostView.module.scss'
 import CommentsSection from '../../components/CommentsSection/CommentsSection'
 import PostContent from '../../components/PostContent/PostContent'
 import PostCreds from '../../components/PostCreds/PostCreds'
-import Flair from '../../components/Flair/Flair'
 import SaveButton from '../../components/SaveButton/SaveButton'
-import Vote from '../../components/Vote/Vote'
-import Loader from '../../components/Loader/Loader'
 import RedditPost from '../../components/RedditPost/RedditPost'
-import Nav from '../../components/Nav/Nav'
+
+import { Flair, Vote, Loader, Nav } from '@shared/components'
+import { useAccessToken, useFetch } from '@shared/hooks'
 
 const PostView: React.FC = () => {
   const { id } = useParams()

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import useAccessToken from '../../hooks/useAccessToken'
 import { Link } from 'react-router-dom'
-import Flair from '../Flair/Flair'
-import useFetch from '../../hooks/useFetch'
 import classes from './PostCreds.module.scss'
+
+import { Flair } from '@shared/components'
+import { useAccessToken, useFetch } from '@shared/hooks'
 
 interface PostCredsProps {
   subreddit: string,

@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
-import useAccessToken from '../../hooks/useAccessToken'
-import useFetch from '../../hooks/useFetch'
 import { ProfileSortBar } from '../../utils/types'
 import { Properties } from 'csstype'
 import classes from './ProfileSort.module.scss'
+
+import { useAccessToken, useFetch } from '@shared/hooks'
 
 interface ProfileSortProps {
   changeSort(sort: ProfileSortBar): void,

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
-import useAccessToken from "../../hooks/useAccessToken"
-import useFetch from "../../hooks/useFetch"
 import classes from './ProfileSidebar.module.scss'
+
+import { useAccessToken, useFetch } from "@shared/hooks"
 
 export interface ProfileSidebarProps {
   username: string

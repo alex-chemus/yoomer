@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import useAccessToken from '../../hooks/useAccessToken'
 import { ProfileSortBar } from '../../utils/types'
 import classes from './Profile.module.scss'
 import IState from '@redux/IState'
@@ -9,7 +8,9 @@ import IState from '@redux/IState'
 import ProfileSort from '../../components/ProfileSort/ProfileSort'
 import ProfileFeed from '../../components/ProfileFeed/ProfileFeed'
 import ProfileSidebar from '../../components/ProfileSidebar/ProfileSidebar'
-import Nav from '../../components/Nav/Nav'
+
+import { Nav } from '@shared/components'
+import { useAccessToken } from '@shared/hooks'
 
 const Profile: React.FC = () => {
   const token = useAccessToken()

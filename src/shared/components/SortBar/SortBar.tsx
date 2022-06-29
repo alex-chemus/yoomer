@@ -1,17 +1,18 @@
 import React, { useRef } from 'react'
 import { Properties } from 'csstype'
-import { Sort } from '../../utils/types'
 import classes from './SortBar.module.scss'
 
+export type ISort = 'best' | 'hot' | 'new' | 'rising' | 'controversial'
+
 interface SortBarProps {
-  changeSort(sort: Sort): void,
-  sort: Sort
+  changeSort(sort: ISort): void,
+  sort: ISort
 }
  
 const SortBar: React.FC<SortBarProps> = ({ changeSort, sort }) => {
   const panel = useRef<HTMLDivElement>(null)
 
-  const dyeSortButton = (currentSort: Sort): Properties => ({
+  const dyeSortButton = (currentSort: ISort): Properties => ({
     backgroundColor: currentSort === sort ? 'var(--accent-color)' : 'transparent',
     color: currentSort === sort ? 'var(--gray-0)' : ''
   })

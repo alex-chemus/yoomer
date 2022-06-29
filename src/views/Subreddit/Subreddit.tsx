@@ -1,26 +1,22 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import useAccessToken from "../../hooks/useAccessToken"
-import useFetch from "../../hooks/useFetch"
-import { ISubreddit, Sort } from "../../utils/types"
-//import IState from '@redux/IState'
+import { ISubreddit } from "../../utils/types"
 import trimSubreddit from "../../utils/trimSubreddit"
 import classes from './Subreddit.module.scss'
 
 import SubredditFeed from "../../components/SubredditFeed/SubredditFeed"
-import SortBar from "../../components/SortBar/SortBar"
-import Loader from "../../components/Loader/Loader"
 import Subscription from "../../components/Subscription/Subscription"
-import Flair from "../../components/Flair/Flair"
 import Rules from "../../components/Rules/Rules"
-import Nav from '../../components/Nav/Nav'
+
+import { ISort, SortBar, Loader, Flair, Nav } from '@shared/components'
+import { useAccessToken, useFetch } from '@shared/hooks'
 
 const Subreddit: React.FC = () => {
   const token = useAccessToken()
   const { subreddit } = useParams()
 
   const [subData, setSubData] = useState<ISubreddit>()
-  const [sort, setSort] = useState<Sort>('best')
+  const [sort, setSort] = useState<ISort>('best')
 
   const acceptData = (data: any) => {
     setSubData(trimSubreddit(data.data))
@@ -73,7 +69,7 @@ const Subreddit: React.FC = () => {
         <section className={classes.contentGrid} data-container>
           <section className={classes.mainContent}>
             <div className={classes.sortbar}>
-              <SortBar changeSort={(val: Sort) => setSort(val)} sort={sort} />
+              <SortBar changeSort={(val: ISort) => setSort(val)} sort={sort} />
             </div>
             <SubredditFeed subreddit={subreddit!} sort={sort} />
           </section>

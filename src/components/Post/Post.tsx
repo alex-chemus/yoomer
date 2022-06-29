@@ -5,11 +5,11 @@ import classes from './Post.module.scss'
 import { Link } from 'react-router-dom'
 
 import PostCreds from '../PostCreds/PostCreds'
-import Flair from '../Flair/Flair'
-import Vote from '../Vote/Vote'
 import SaveButton from '../SaveButton/SaveButton'
 import PostContent from '../PostContent/PostContent'
 import RedditPost from '../RedditPost/RedditPost'
+
+import { Vote, Flair } from '@shared/components'
 
 interface PostProps {
   data: IPost

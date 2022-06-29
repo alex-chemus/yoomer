@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
-import useAccessToken from '../../hooks/useAccessToken'
 import classes from './Nav.module.scss'
 import { Link, useNavigate } from 'react-router-dom'
-import useFetch from '../../hooks/useFetch'
-import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher'
+
+import { ThemeSwitcher } from '@shared/components'
+import { useFetch, useAccessToken } from '@shared/hooks'
 
 const Nav: React.FC = () => {
   const token = useAccessToken()

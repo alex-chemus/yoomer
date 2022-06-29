@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import useFetch from '../../hooks/useFetch'
 import classes from './Rules.module.scss'
 
-import Loader from '../Loader/Loader'
+import { Loader } from '@shared/components'
+import { useFetch } from '@shared/hooks'
 
 interface RulesProps {
   subreddit: string

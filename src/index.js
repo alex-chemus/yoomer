@@ -13,7 +13,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk';
 import generateString from './utils/generateString.ts';
-import Loader from './components/Loader/Loader';
+import Loader from '@shared/components/Loader/Loader';
 
 import 'open-props/style'
 import 'open-props/normalize'

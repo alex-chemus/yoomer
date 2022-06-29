@@ -1,14 +1,12 @@
 import React, { useEffect, useState, useRef } from "react"
 import { useSelector } from "react-redux"
-import useAccessToken from "../../hooks/useAccessToken"
 import { ISubredditCreds } from "../../utils/types"
 import IState from '@redux/IState'
 import trimSubredditCreds from '../../utils/trimSubredditCreds'
 import { Link } from "react-router-dom"
-import useFetch from "../../hooks/useFetch"
-//import Observer from "../Observer/Observer"
-
 import classes from './Communities.module.scss'
+
+import { useAccessToken } from "@shared/hooks"
 
 const Communities: React.FC = () => {
   const token = useAccessToken()

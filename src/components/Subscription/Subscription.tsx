@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import useFetch from '../../hooks/useFetch'
 import classes from './Subscription.module.scss'
+
+import { useFetch } from '@shared/hooks'
 
 interface SubscriptionProps {
   isSubbed: boolean,

@@ -2,11 +2,10 @@ import React, { useState, useRef, useEffect } from 'react'
 import trimComment from '../../utils/trimComment'
 import { IComment } from '../../utils/types'
 import classes from './Comment.module.scss'
-
-import Flair from '../Flair/Flair'
 import CommentField from '../CommentField/CommentField'
-import Vote from '../Vote/Vote'
 import { Properties } from 'csstype'
+
+import { Flair, Vote } from '@shared/components'
 
 interface CommentProps {
   data: any,

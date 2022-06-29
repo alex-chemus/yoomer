@@ -1,5 +1,3 @@
-export type Sort = 'best' | 'hot' | 'new' | 'rising' | 'controversial'
-
 export interface IPost {
   post_hint: string,
   preview: any,
