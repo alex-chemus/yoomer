@@ -1,0 +1,50 @@
+@import '@src/index.scss';
+
+.container {
+  @include flex(flex-start, flex-start);
+  gap: var(--size-3);
+  flex-shrink: 2;
+  max-width: 100%;
+
+  a {
+    // padding: 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  @include sm {
+    gap: var(--size-2);
+  }
+}
+
+.icon {
+  width: var(--size-7);
+  aspect-ratio: 1;
+  border-radius: var(--radius-round);
+
+  &[data-placeholder] {
+    background-color: var(--placeholder-color);
+  }
+}
+
+.info {
+  @include flex(flex-start, flex-start);
+  flex-wrap: wrap;
+  flex-shrink: 2;
+
+  div {
+    margin-bottom: var(--size-2);
+    margin-right: var(--size-3);
+
+    & > p,
+    & > h6 {
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
+    }
+  }
+}

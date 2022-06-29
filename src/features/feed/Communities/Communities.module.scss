@@ -1,0 +1,61 @@
+@import '@src/index.scss';
+
+.communities {
+  padding: var(--size-4);
+}
+
+.list {
+  padding: 0;
+  list-style: none;
+  @include flex(flex-start, stretch, column);
+  gap: var(--size-3);
+  max-width: 100%;
+
+  @include lg {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: var(--size-3);
+  }
+
+  @include sm {
+    grid-template-columns: 1fr;
+  }
+}
+
+.heading {
+  margin-bottom: var(--size-4);
+}
+
+.subreddit {
+  @include flex(flex-start, center);
+  padding: var(--size-1);
+  gap: var(--size-2);
+  max-width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.icon {
+  width: var(--size-5);
+  height: var(--size-5);
+  border-radius: var(--radius-round);
+
+  &[data-placeholder] {
+    background-color: var(--placeholder-color);
+  }
+}
+
+.btn {
+  margin-top: var(--size-4);
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--bg-color-1);
+  border-radius: var(--radius-2);
+  transition: var(--fast-in);
+
+  &:hover {
+    color: var(--gray-0);
+    background-color: var(--accent-color);
+  }
+}

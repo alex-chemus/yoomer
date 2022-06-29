@@ -1,0 +1,30 @@
+@import '@src/index.scss';
+
+.SubredditsSidebar {
+  width: var(--size-13);
+
+  //position: fixed;
+  //top: 100px;
+  //right: 0;
+
+  position: sticky;
+  top: 50px;
+  align-self: start;
+
+  height: calc(100vh - 200px);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: var(--bg-color-2);
+  border-radius: var(--radius-2);
+  box-shadow: var(--shadow-5);
+  overscroll-behavior: none;
+
+  @include lg {
+    //display: none;
+    width: 100%;
+    height: var(--size-14);
+    order: -1;
+    position: static;
+    margin-bottom: var(--size-8);
+  }
+}

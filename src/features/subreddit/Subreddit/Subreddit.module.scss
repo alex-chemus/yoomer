@@ -1,0 +1,127 @@
+@import '@src/index.scss';
+
+.loader {
+  width: 100%;
+  @include flex(center, center);
+}
+
+.banner {
+  width: 100vw;
+  max-height: 30vh;
+  object-fit: cover;
+}
+
+.header {
+  margin-bottom: var(--size-8);
+}
+
+.headerInfo {
+  @include flex(space-between, flex-end);
+
+  &[data-offset="true"] {
+    margin-top: -0.75rem !important;
+  }
+
+  @include md {
+    flex-direction: column;
+    align-items: flex-start;
+    @include flex-gap('bottom', var(--size-5));
+
+    &[data-offset="true"] {
+      margin-top: var(--size-5) !important;
+    }
+  }
+}
+
+.subCreds {
+  @include flex(flex-start, baseline);
+  @include flex-gap('right', var(--size-5));
+  flex-shrink: 2;
+  max-width: 100%;
+
+  @include md {
+    @include flex-gap('right', var(--size-4));
+    align-items: flex-start;
+  }
+
+  img {
+    width: var(--size-9);
+    aspect-ratio: 1;
+    border-radius: var(--radius-round);
+    flex-shrink: 0;
+
+    @include md {
+      width: var(--size-8);
+    }
+  }
+
+  [data-placeholder] {
+    width: var(--size-9);
+    aspect-ratio: 1;
+  }
+
+  h2 {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: var(--size-2);
+
+    @include md {
+      white-space: normal;
+    }
+  }
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  grid-gap: var(--size-9);
+
+  @include lg {
+    @include flex(flex-start, stretch, column);
+    grid-gap: 0;
+  }
+}
+
+.mainContent {
+  overflow-x: hidden;
+}
+
+.sidebar {
+  padding: var(--size-2);
+  //position: sticky;
+  //top: 50px;
+  //align-self: start;
+
+  @include lg {
+    margin-bottom: var(--size-8);
+    order: -1;
+    padding: var(--size-4);
+    position: static;
+  }
+}
+
+.description {
+  margin-bottom: var(--size-2);
+}
+
+.sortbar {
+  margin-bottom: var(--size-4);
+}
+
+.aboutSection {
+  h3 {
+    margin-bottom: var(--size-3);
+  }
+}
+
+.flair {
+  @include flex(space-between, center);
+}
+
+.rulesWrapper {
+  h3 {
+    margin-bottom: var(--size-3);
+  }
+}

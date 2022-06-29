@@ -1,0 +1,6 @@
+@import '@src/index.scss';
+
+.link {
+  @include btn;
+  @include highlighBtn;
+}

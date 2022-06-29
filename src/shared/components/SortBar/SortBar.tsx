@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { Properties } from 'csstype'
 import classes from './SortBar.module.scss'
 
-export type ISort = 'best' | 'hot' | 'new' | 'rising' | 'controversial'
+import { ISort } from '@shared/types'
 
 interface SortBarProps {
   changeSort(sort: ISort): void,

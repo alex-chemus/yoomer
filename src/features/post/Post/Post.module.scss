@@ -1,0 +1,85 @@
+@import '@src/index.scss';
+
+.Post {
+  //padding: 40px;
+  padding: var(--size-7);
+  //border: 1px solid magenta;
+  background-color: var(--bg-color-2);
+  box-shadow: var(--shadow-3);
+  border-radius: var(--radius-2);
+
+  @include md {
+    padding: var(--size-6);
+  }
+
+  @include sm {
+    padding: var(--size-5);
+  }
+}
+
+.topContainer {
+  @include flex(space-between, center);
+  margin-bottom: var(--size-3);
+}
+
+.titleContainer {
+  @include flex(space-between, baseline);
+  margin-bottom: var(--size-3);
+  flex-wrap: wrap;
+
+  [data-title] {
+    margin-right: var(--size-3);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+}
+
+.bottomContainer {
+  margin-top: var(--size-3);
+  @include flex(space-between, center);
+}
+
+.furtherBtn {
+  @include btn;
+  @include highlighBtn;
+}
+
+.postCreds {
+  margin-right: var(--size-3);
+}
+
+.linksContainer {
+  @include flex(flex-start, center);
+  //gap: var(--size-2);
+  /*& > *:not(:last-of-type) {
+    margin-right: var(--size-2);
+  }*/
+  @include flex-gap(right, var(--size-2));
+}
+
+.text {
+  margin-bottom: var(--size-3); 
+  overflow: hidden;
+
+  &[data-clamp] {
+    display: -webkit-box;
+    line-clamp: 5;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;  
+    cursor: pointer;
+  }
+
+  code {
+    white-space: normal;
+  }
+
+  a {
+    white-space: normal;
+    word-break: break-word;
+  }
+  
+  p {
+    max-width: 100%;
+  }
+}

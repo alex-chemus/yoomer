@@ -1,27 +1,13 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
-import RedirectURI from './views/RedirectURI/RedirectURI.tsx';
-import {
-  BrowserRouter,
-  HashRouter,
-  Routes,
-  Route
-} from 'react-router-dom'
 import reducer from './redux/reducer.ts'
 import { createStore, compose, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux'
 import thunk from 'redux-thunk';
-import generateString from './utils/generateString.ts';
-import Loader from '@shared/components/Loader/Loader';
 
 import 'open-props/style'
 import 'open-props/normalize'
 import './index.scss'
-
-const Profile = React.lazy(() => import('./views/Profile/Profile'))
-const Subreddit = React.lazy(() => import('./views/Subreddit/Subreddit'))
-const PostView = React.lazy(() => import('./views/PostView/PostView'))
 
 const composeEnhancers =
   typeof window === 'object' &&
@@ -34,6 +20,16 @@ const store = createStore(reducer, composeEnhancers(
   applyMiddleware(thunk)
 ))
 
+function generateString(length) {
+  let result = ' ';
+  const charactersLength = characters.length;
+  for ( let i = 0; i < length; i++ ) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+
+  return result;
+}
+
 const href = window.location.href
 // если нет рефреш токена, редиректнуть на аус пейдж
 // однако если вернуло со страницы редиректа, снова редиректит
@@ -41,7 +37,6 @@ if (!localStorage.getItem('refresh_token') && !/\/yoomer\/\#\/redirected/.test(h
 //if (!localStorage.getItem('refresh_token') && path !== '/yoomer/#/redirected') {
 //if (!localStorage.getItem('access_token')) { // update: теперь проверяется акцес токен
   const { clientId, redirectUri } = store.getState()
-  // todo: remove extra permissions
   const scope = [
     'identity', 'edit', 'flair',
     'history', 'modconfig', 'modflair',
@@ -63,7 +58,6 @@ if (!localStorage.getItem('refresh_token') && !/\/yoomer\/\#\/redirected/.test(h
 }
 
 // установить тему в :root[data-theme]
-
 const prefers = theme => window.matchMedia(`(prefers-color-scheme: ${theme})`).matches
 const root = document.querySelector(':root')
 
@@ -76,34 +70,6 @@ else if (prefers('dark'))
 createRoot(document.getElementById('root'))
   .render(
     <React.StrictMode>
-      <Provider store={store}>
-        <HashRouter basename='/'>
-          <Routes>
-
-            <Route path="/" element={<App />} />
-
-            <Route path="/redirected" element={<RedirectURI />} />
-
-            <Route path="/u/:name" element={
-              <Suspense fallback={<Loader />}>
-                <Profile />
-              </Suspense>
-            } />
-
-            <Route path="/r/:subreddit" element={
-              <Suspense fallback={<Loader />}>
-                <Subreddit />
-              </Suspense>
-            } />
-
-            <Route path="/post/:id" element={
-              <Suspense fallback={<Loader />}>
-                <PostView />
-              </Suspense>
-            } />
-
-          </Routes>
-        </HashRouter>
-      </Provider>
+      <App store={store} />
     </React.StrictMode>
   )

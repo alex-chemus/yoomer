@@ -1,0 +1,15 @@
+@import '@src/index.scss';
+
+.btn {
+  flex-shrink: 0;
+  background-color: var(--bg-color-1);
+  color: var(--primary-color-1);
+  border-radius: var(--radius-2);
+  padding: var(--size-1);
+  transition: var(--fast-in);
+
+  &:hover {
+    background-color: var(--accent-color);
+    color: var(--gray-2);
+  }
+}

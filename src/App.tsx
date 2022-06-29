@@ -1,43 +1,54 @@
-import React, { useState } from 'react'
-import classes from './App.module.scss'
+import React, { lazy, FC, Suspense } from 'react'
+import { Provider } from 'react-redux'
+import { HashRouter, Routes, Route } from 'react-router-dom'
+import RedirectURI from './views/RedirectURI'
+import { Loader } from '@shared/components'
 
-import CommonFeed from './components/CommonFeed/CommonFeed';
-import SubredditsSidebar from './components/SubredditsSidebar/SubredditsSidebar';
+const FeedView = lazy(() => import('./views/FeedView'))
+const PostView = lazy(() => import('./views/PostView'))
+const Profile = lazy(() => import('./views/Profile'))
+const Subreddit = lazy(() => import('./views/Subreddit'))
 
-import { ISort, SortBar, Nav } from '@shared/components';
-
-const App: React.FC = () => {
-  const [sort, setSort] = useState<ISort>('best')
-
-  const changeSort = (str: ISort) => {
-    setSort(str)
-  }
-
-  return (
-    <main className={classes.App}>
-      <Nav />
-      {/*<div data-container>
-        <div className={classes.sortbar}>
-          <SortBar changeSort={changeSort} sort={sort} />
-        </div>
-        
-        <div className={classes.commonFeed}>
-          <CommonFeed sort={sort} />
-        </div>
-      </div>
-      <SubredditsSidebar />*/}
-      <section data-container className={classes.content}>
-        <div>
-          <div className={classes.sortbar}>
-            <SortBar changeSort={changeSort} sort={sort} />
-          </div>
-          <CommonFeed sort={sort} />
-        </div>
-
-        <SubredditsSidebar />
-      </section>
-    </main>
-  );
+interface AppProps {
+  store: any
 }
 
-export default App;
+const App: FC<AppProps> = ({ store }) => {
+  return (
+    <Provider store={store}>
+      <HashRouter>
+        <Routes>
+
+          <Route path="/" element={
+            <Suspense fallback={<Loader />}>
+              <FeedView />
+            </Suspense>
+          } />
+
+          <Route path="/redirected" element={<RedirectURI />} />
+
+          <Route path="/r/:subreddit" element={
+            <Suspense fallback={<Loader />}>
+              <Subreddit />
+            </Suspense>
+          } />
+
+          <Route path="/u/:name" element={
+            <Suspense fallback={<Loader />}>
+              <Profile />
+            </Suspense>
+          } />
+
+          <Route path="/post/:id" element={
+            <Suspense fallback={<Loader />}>
+              <PostView />
+            </Suspense>
+          } />
+
+        </Routes>
+      </HashRouter>
+    </Provider>
+  )
+}
+
+export default App
