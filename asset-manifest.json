@@ -1,25 +1,33 @@
 {
   "files": {
-    "main.css": "/yoomer/static/css/main.5cfa5fab.css",
-    "main.js": "/yoomer/static/js/main.cc2ea172.js",
-    "static/css/17.213740f6.chunk.css": "/yoomer/static/css/17.213740f6.chunk.css",
-    "static/js/17.e8690e22.chunk.js": "/yoomer/static/js/17.e8690e22.chunk.js",
-    "static/css/113.970ffd07.chunk.css": "/yoomer/static/css/113.970ffd07.chunk.css",
-    "static/js/113.8e900c4d.chunk.js": "/yoomer/static/js/113.8e900c4d.chunk.js",
-    "static/css/657.ea7e1aa5.chunk.css": "/yoomer/static/css/657.ea7e1aa5.chunk.css",
-    "static/js/657.c3baa7e2.chunk.js": "/yoomer/static/js/657.c3baa7e2.chunk.js",
+    "main.css": "/yoomer/static/css/main.e2d02cad.css",
+    "main.js": "/yoomer/static/js/main.b8259b99.js",
+    "static/css/113.4e0b9c5f.chunk.css": "/yoomer/static/css/113.4e0b9c5f.chunk.css",
+    "static/js/113.a99d132c.chunk.js": "/yoomer/static/js/113.a99d132c.chunk.js",
+    "static/js/849.8fa66130.chunk.js": "/yoomer/static/js/849.8fa66130.chunk.js",
+    "static/css/682.95538739.chunk.css": "/yoomer/static/css/682.95538739.chunk.css",
+    "static/js/682.e9e6e581.chunk.js": "/yoomer/static/js/682.e9e6e581.chunk.js",
+    "static/css/728.98245774.chunk.css": "/yoomer/static/css/728.98245774.chunk.css",
+    "static/js/728.ab84005d.chunk.js": "/yoomer/static/js/728.ab84005d.chunk.js",
+    "static/js/712.4f14f41f.chunk.js": "/yoomer/static/js/712.4f14f41f.chunk.js",
+    "static/css/972.48702156.chunk.css": "/yoomer/static/css/972.48702156.chunk.css",
+    "static/js/972.fd2e5be2.chunk.js": "/yoomer/static/js/972.fd2e5be2.chunk.js",
     "index.html": "/yoomer/index.html",
-    "main.5cfa5fab.css.map": "/yoomer/static/css/main.5cfa5fab.css.map",
-    "main.cc2ea172.js.map": "/yoomer/static/js/main.cc2ea172.js.map",
-    "17.213740f6.chunk.css.map": "/yoomer/static/css/17.213740f6.chunk.css.map",
-    "17.e8690e22.chunk.js.map": "/yoomer/static/js/17.e8690e22.chunk.js.map",
-    "113.970ffd07.chunk.css.map": "/yoomer/static/css/113.970ffd07.chunk.css.map",
-    "113.8e900c4d.chunk.js.map": "/yoomer/static/js/113.8e900c4d.chunk.js.map",
-    "657.ea7e1aa5.chunk.css.map": "/yoomer/static/css/657.ea7e1aa5.chunk.css.map",
-    "657.c3baa7e2.chunk.js.map": "/yoomer/static/js/657.c3baa7e2.chunk.js.map"
+    "main.e2d02cad.css.map": "/yoomer/static/css/main.e2d02cad.css.map",
+    "main.b8259b99.js.map": "/yoomer/static/js/main.b8259b99.js.map",
+    "113.4e0b9c5f.chunk.css.map": "/yoomer/static/css/113.4e0b9c5f.chunk.css.map",
+    "113.a99d132c.chunk.js.map": "/yoomer/static/js/113.a99d132c.chunk.js.map",
+    "849.8fa66130.chunk.js.map": "/yoomer/static/js/849.8fa66130.chunk.js.map",
+    "682.95538739.chunk.css.map": "/yoomer/static/css/682.95538739.chunk.css.map",
+    "682.e9e6e581.chunk.js.map": "/yoomer/static/js/682.e9e6e581.chunk.js.map",
+    "728.98245774.chunk.css.map": "/yoomer/static/css/728.98245774.chunk.css.map",
+    "728.ab84005d.chunk.js.map": "/yoomer/static/js/728.ab84005d.chunk.js.map",
+    "712.4f14f41f.chunk.js.map": "/yoomer/static/js/712.4f14f41f.chunk.js.map",
+    "972.48702156.chunk.css.map": "/yoomer/static/css/972.48702156.chunk.css.map",
+    "972.fd2e5be2.chunk.js.map": "/yoomer/static/js/972.fd2e5be2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5cfa5fab.css",
-    "static/js/main.cc2ea172.js"
+    "static/css/main.e2d02cad.css",
+    "static/js/main.b8259b99.js"
   ]
 }
