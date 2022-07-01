@@ -9,6 +9,7 @@ interface FlairProps {
 }
 
 const Flair: React.FC<FlairProps> = ({ color, bgcolor, richtext }) => {  
+  console.log('flair: ', color, bgcolor, richtext)
   const getByType = (type: 'text' | 'emoji') => 
     richtext.find((i: any) => i.e === type)
 
@@ -16,7 +17,8 @@ const Flair: React.FC<FlairProps> = ({ color, bgcolor, richtext }) => {
     try {
       if (bgcolor === 'transparent' || !bgcolor) {
         return {
-          color: 'var(--primary-color-1)'
+          color: 'var(--primary-color-1)',
+          backgroundColor: bgcolor
         }
       } else {
         return {
@@ -33,7 +35,6 @@ const Flair: React.FC<FlairProps> = ({ color, bgcolor, richtext }) => {
         color: 'var(--primary-color-1)'
       }
     }
-    
   }
 
   return richtext?.length
