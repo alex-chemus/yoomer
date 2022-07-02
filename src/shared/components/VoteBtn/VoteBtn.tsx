@@ -10,8 +10,8 @@ interface VoteBtnProps {
 
 const VoteBtn: FC<VoteBtnProps> = ({ likes, check, onClick, bgcolor }) => {
   const cls = [classes.btn]
-  if (check && likes === 1) cls.push(classes.upvote)
-  if (check && likes === -1) cls.push(classes.downvote)
+  if (check && likes === 1) cls.push(classes.upvoted)
+  if (check && likes === -1) cls.push(classes.downvoted)
   if (likes === -1) cls.push(classes.rotated)
 
   return (
