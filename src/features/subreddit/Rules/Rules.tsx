@@ -1,20 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
-import classes from './Rules.module.scss'
+import { IRule } from '../types'
 
-import { Loader } from '@shared/components'
 import { useFetch } from '@shared/hooks'
+import ShowRules from '../ShowRules/ShowRules'
 
 interface RulesProps {
   subreddit: string
 }
 
-interface IRule {
-  short_name: string,
-  description_html: string
-}
-
 const Rules: React.FC<RulesProps> = ({ subreddit }) => {
-  const [rules, setRules] = useState<IRule[] | null>()
+  const [rules, setRules] = useState<IRule[] | null>(null)
 
   const acceptData = (data: any) => {
     //console.log(data.rules)
@@ -38,23 +33,7 @@ const Rules: React.FC<RulesProps> = ({ subreddit }) => {
     }
   }
 
-  return rules
-    ? (
-      <ul className={classes.rules}>{
-        rules.map((rule: IRule, i) => {
-          return (
-            <li className={classes.listItem} key={i}>
-              <h5 className={classes.accordion} onClick={e => toggleRule(e)}>{rule.short_name}</h5>
-              <div 
-                dangerouslySetInnerHTML={{__html: rule.description_html}}
-                className={classes.panel}
-              />
-            </li>
-          )
-        })
-      }</ul>
-    )
-    : <Loader />
+  return <ShowRules toggleRule={toggleRule} rules={rules} />
 }
 
 export default Rules

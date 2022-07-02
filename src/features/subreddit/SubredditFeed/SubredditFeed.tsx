@@ -30,7 +30,6 @@ const SubredditFeed: React.FC<SubredditFeedProps> = ({ subreddit, sort }) => {
           ? [ ...newPosts ]
           : [ ...prevPosts, ...newPosts ]
       })
-
     }
   }
 

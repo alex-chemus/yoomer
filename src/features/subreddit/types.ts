@@ -15,3 +15,8 @@ export interface ISubreddit {
   over18: boolean,
   user_is_subscriber: boolean,
 }
+
+export interface IRule {
+  short_name: string,
+  description_html: string
+}

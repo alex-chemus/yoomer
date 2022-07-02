@@ -32,7 +32,6 @@ const CommonFeed: React.FC<CommonFeedProps> = ({ sort }) => {
           ? [ ...newPosts ]
           : [ ...prevPosts, ...newPosts ]
       })
-
     }
   }
 
