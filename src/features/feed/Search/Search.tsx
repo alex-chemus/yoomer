@@ -1,34 +1,41 @@
 import React, { useRef, useState } from "react"
-import { Properties } from "csstype"
-import { Link } from "react-router-dom"
-import classes from './Search.module.scss'
-
 import { useFetch } from "@shared/hooks"
+import ShowSearch from "../ShowSearch/ShowSearch"
 
 const Search: React.FC = () => {
-  const [input, setInput] = useState<string>('')
-  const popupRef = useRef<HTMLUListElement>(null)
+  //const [input, setInput] = useState<string>('')
+  //const popupRef = useRef<HTMLUListElement>(null)
   const [popupData, setPopupData] = useState<any[]>([])
 
   const acceptData = (data: any) => {
     //console.log('search result: ', data)
-    const arr = data.subreddits.sort((a: any, b: any) => a.subscriber_count - b.subscriber_count)
+    const arr = data.subreddits
+      .sort((a: any, b: any) => a.subscriber_count - b.subscriber_count)
     setPopupData(arr)
-    const handleClick = (e: MouseEvent) => {
+    /*const handleClick = (e: MouseEvent) => {
       if (!popupRef.current!.contains(e.target as Node)) {
         setPopupData([])
       }
     } 
-    document.addEventListener('click', handleClick)
+    document.addEventListener('click', handleClick)*/
   }
 
-  const searchSubs = useFetch({
+  /*const searchSubs = useFetch({
     path: `/api/search_subreddits`,
     callback: acceptData,
     body: new URLSearchParams(`exact=false&include_over_18=true&query=${input}`)
-  })
+  })*/
 
-  return (
+  const searchSubs = (input: string) => {
+    useFetch({
+      path: `/api/search_subreddits`,
+      callback: acceptData,
+      body: new URLSearchParams(`exact=false&include_over_18=true&query=${input}`)
+    })
+  }
+
+  return <ShowSearch searchSubs={searchSubs} popupData={popupData} setPopupData={setPopupData} />
+  /*return (
     <div className={classes.container}>
       <input 
         type="text" 
@@ -53,7 +60,9 @@ const Search: React.FC = () => {
         </ul>
       )}
     </div>
-  )
+  )*/
+
+
 }
 
 export default Search

@@ -19,7 +19,7 @@ const ShowCommunities: FC<ShowCommunitiesProps> = ({ fetchSubs, isAll, subreddit
             {sub.icon
               ? <img src={sub.icon} alt="" width={25} height={25} className={classes.icon} />
               : <div className={classes.icon} data-placeholder />}
-            <Link to={sub.name}>{sub.name}</Link>
+            <Link to={sub.name} title={sub.name}>{sub.name}</Link>
           </li>
         ))}
       </ul>
