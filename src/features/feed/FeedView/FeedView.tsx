@@ -17,16 +17,6 @@ const FeedView: React.FC = () => {
   return (
     <main className={classes.App}>
       <Nav />
-      {/*<div data-container>
-        <div className={classes.sortbar}>
-          <SortBar changeSort={changeSort} sort={sort} />
-        </div>
-        
-        <div className={classes.commonFeed}>
-          <CommonFeed sort={sort} />
-        </div>
-      </div>
-      <SubredditsSidebar />*/}
       <section data-container className={classes.content}>
         <div>
           <div className={classes.sortbar}>

@@ -24,10 +24,7 @@ const CommonFeed: React.FC<CommonFeedProps> = ({ sort }) => {
     const data = res.data
 
     if (data.after !== afterRef.current) {
-      //console.log('old after: ', afterRef.current)
       afterRef.current = data.after
-      //console.log('new after: ', afterRef.current)
-      //console.log('-----------')
 
       setPosts(prevPosts => {
         const newPosts = data.children.map((item: any) => trimPost(item.data))
@@ -38,21 +35,6 @@ const CommonFeed: React.FC<CommonFeedProps> = ({ sort }) => {
 
     }
   }
-
-  /*const fetchPosts = (shouldReset: boolean) => {
-    if (token && token !== 'error') {
-      const after = afterRef ? `&after=${afterRef.current}` : ''
-
-      fetch(`${baseUrl}/${sort}.json?raw_json=1${after}`, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
-        .then(res => res.json())
-        .then(res => acceptData(res, shouldReset))
-        .catch(error => console.log(error))
-    }
-  }*/
 
   const fetchPosts = useFetch({
     path: `/${sort}`,
