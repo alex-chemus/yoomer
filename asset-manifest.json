@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/yoomer/static/css/main.bba198d9.css",
-    "main.js": "/yoomer/static/js/main.264e604f.js",
+    "main.js": "/yoomer/static/js/main.581d8984.js",
     "static/css/168.79d01957.chunk.css": "/yoomer/static/css/168.79d01957.chunk.css",
-    "static/js/168.130db595.chunk.js": "/yoomer/static/js/168.130db595.chunk.js",
+    "static/js/168.24a828fb.chunk.js": "/yoomer/static/js/168.24a828fb.chunk.js",
     "static/js/849.8fa66130.chunk.js": "/yoomer/static/js/849.8fa66130.chunk.js",
     "static/css/682.612c1d9f.chunk.css": "/yoomer/static/css/682.612c1d9f.chunk.css",
     "static/js/682.3561db8c.chunk.js": "/yoomer/static/js/682.3561db8c.chunk.js",
@@ -14,9 +14,9 @@
     "static/js/972.73fa450e.chunk.js": "/yoomer/static/js/972.73fa450e.chunk.js",
     "index.html": "/yoomer/index.html",
     "main.bba198d9.css.map": "/yoomer/static/css/main.bba198d9.css.map",
-    "main.264e604f.js.map": "/yoomer/static/js/main.264e604f.js.map",
+    "main.581d8984.js.map": "/yoomer/static/js/main.581d8984.js.map",
     "168.79d01957.chunk.css.map": "/yoomer/static/css/168.79d01957.chunk.css.map",
-    "168.130db595.chunk.js.map": "/yoomer/static/js/168.130db595.chunk.js.map",
+    "168.24a828fb.chunk.js.map": "/yoomer/static/js/168.24a828fb.chunk.js.map",
     "849.8fa66130.chunk.js.map": "/yoomer/static/js/849.8fa66130.chunk.js.map",
     "682.612c1d9f.chunk.css.map": "/yoomer/static/css/682.612c1d9f.chunk.css.map",
     "682.3561db8c.chunk.js.map": "/yoomer/static/js/682.3561db8c.chunk.js.map",
@@ -28,6 +28,6 @@
   },
   "entrypoints": [
     "static/css/main.bba198d9.css",
-    "static/js/main.264e604f.js"
+    "static/js/main.581d8984.js"
   ]
 }
