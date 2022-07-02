@@ -36,10 +36,6 @@ const Vote: React.FC<VoteProps> = ({ likes, name, bgcolor = 'var(--bg-color-1)' 
     }
   }
 
-  const commentStyle: Properties = {
-    backgroundColor: bgcolor
-  }
-
   return (
     <div className={classes.vote}>
       <VoteBtn check={liked} likes={1} onClick={vote} bgcolor={bgcolor} />
