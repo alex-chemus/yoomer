@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 
 //import 'open-props/style'
 import 'open-props/normalize'
-import './open-props.min.css'
+//import './open-props.min.css'
 import './index.scss'
 
 const composeEnhancers =
