@@ -4,6 +4,7 @@ import { Properties } from 'csstype'
 import classes from './ProfileSort.module.scss'
 
 import { useAccessToken, useFetch } from '@shared/hooks'
+import ShowProfileSort from '../ShowProfileSort/ShowProfileSort'
 
 interface ProfileSortProps {
   changeSort(sort: IProfileSortBar): void,
@@ -44,7 +45,14 @@ const ProfileSort: React.FC<ProfileSortProps> = ({ changeSort, username, sort })
     }
   }
 
-  return (
+  return <ShowProfileSort 
+    ref={panel}
+    dyeSortButton={dyeSortButton}
+    changeSort={changeSort}
+    isMe={isMe}
+    slide={slide}
+  />
+  /*return (
     <nav className={classes.profileSort}>
       <h6 onClick={slide}>
         Show
@@ -84,7 +92,7 @@ const ProfileSort: React.FC<ProfileSortProps> = ({ changeSort, username, sort })
       )}
       </div>
     </nav>
-  )
+  )*/
 }
 
 export default ProfileSort
