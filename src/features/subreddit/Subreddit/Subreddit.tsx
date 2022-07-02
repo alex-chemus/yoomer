@@ -18,7 +18,7 @@ const Subreddit: React.FC = () => {
   const token = useAccessToken()
   const { subreddit } = useParams()
   const navigate = useNavigate()
-  if (typeof subreddit !== 'undefined') navigate('/', { replace: true })
+  if (typeof subreddit === 'undefined') navigate('/', { replace: true })
 
   const [subData, setSubData] = useState<ISubreddit>()
 
