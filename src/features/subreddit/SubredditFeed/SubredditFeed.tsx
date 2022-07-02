@@ -1,5 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useContext } from 'react'
 import classes from './SubredditFeed.module.scss'
+import { SubredditContext } from '../Subreddit/Subreddit'
 
 import { Observer, Loader } from '@shared/components'
 import { useAccessToken, useFetch } from '@shared/hooks'
@@ -8,11 +9,11 @@ import { ISort } from '@shared/types'
 import { IPost, Post, trimPost } from '@features/post'
 
 interface SubredditFeedProps {
-  subreddit: string,
   sort: ISort
 }
 
-const SubredditFeed: React.FC<SubredditFeedProps> = ({ subreddit, sort }) => {
+const SubredditFeed: React.FC<SubredditFeedProps> = ({ sort }) => {
+  const { subreddit } = useContext(SubredditContext)!
   const token = useAccessToken()
 
   const [posts, setPosts] = useState<IPost[]>([])

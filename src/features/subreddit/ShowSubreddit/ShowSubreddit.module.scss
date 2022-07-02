@@ -1,0 +1,25 @@
+@import '@src/index.scss';
+
+.loader {
+  width: 100%;
+  @include flex(center, center);
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  grid-gap: var(--size-9);
+
+  @include lg {
+    @include flex(flex-start, stretch, column);
+    grid-gap: 0;
+  }
+}
+
+.mainContent {
+  overflow-x: hidden;
+}
+
+.sortbar {
+  margin-bottom: var(--size-4);
+}

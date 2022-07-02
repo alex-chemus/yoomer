@@ -1,10 +1,5 @@
 @import '@src/index.scss';
 
-.loader {
-  width: 100%;
-  @include flex(center, center);
-}
-
 .banner {
   width: 100vw;
   max-height: 30vh;
@@ -70,58 +65,5 @@
     @include md {
       white-space: normal;
     }
-  }
-}
-
-.contentGrid {
-  display: grid;
-  grid-template-columns: 1fr 200px;
-  grid-gap: var(--size-9);
-
-  @include lg {
-    @include flex(flex-start, stretch, column);
-    grid-gap: 0;
-  }
-}
-
-.mainContent {
-  overflow-x: hidden;
-}
-
-.sidebar {
-  padding: var(--size-2);
-  //position: sticky;
-  //top: 50px;
-  //align-self: start;
-
-  @include lg {
-    margin-bottom: var(--size-8);
-    order: -1;
-    padding: var(--size-4);
-    position: static;
-  }
-}
-
-.description {
-  margin-bottom: var(--size-2);
-}
-
-.sortbar {
-  margin-bottom: var(--size-4);
-}
-
-.aboutSection {
-  h3 {
-    margin-bottom: var(--size-3);
-  }
-}
-
-.flair {
-  @include flex(space-between, center);
-}
-
-.rulesWrapper {
-  h3 {
-    margin-bottom: var(--size-3);
   }
 }

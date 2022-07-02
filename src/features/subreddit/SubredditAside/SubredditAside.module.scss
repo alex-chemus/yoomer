@@ -1,0 +1,33 @@
+.sidebar {
+  padding: var(--size-2);
+  //position: sticky;
+  //top: 50px;
+  //align-self: start;
+
+  @include lg {
+    margin-bottom: var(--size-8);
+    order: -1;
+    padding: var(--size-4);
+    position: static;
+  }
+}
+
+.aboutSection {
+  h3 {
+    margin-bottom: var(--size-3);
+  }
+}
+
+.description {
+  margin-bottom: var(--size-2);
+}
+
+.flair {
+  @include flex(space-between, center);
+}
+
+.rulesWrapper {
+  h3 {
+    margin-bottom: var(--size-3);
+  }
+}
