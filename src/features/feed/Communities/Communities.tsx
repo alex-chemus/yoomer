@@ -20,7 +20,7 @@ const Communities: React.FC = () => {
     if (data.after !== afterRef.current) {
       //if (data.after === null) isAll.current = true
       if (data.after === null) setIsAll(true)
-      //afterRef.current = data.after
+      afterRef.current = data.after
 
       setSubreddits(prevSubs => ([
         ...prevSubs,
