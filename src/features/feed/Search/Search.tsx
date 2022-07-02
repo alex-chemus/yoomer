@@ -34,7 +34,11 @@ const Search: React.FC = () => {
     })
   }
 
-  return <ShowSearch searchSubs={searchSubs} popupData={popupData} setPopupData={setPopupData} />
+  return <ShowSearch 
+    searchSubs={searchSubs} 
+    popupData={popupData} 
+    clear={() => setPopupData([])} 
+  />
   /*return (
     <div className={classes.container}>
       <input 

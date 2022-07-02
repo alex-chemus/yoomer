@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom'
 interface ShowSearchProps {
   popupData: any[],
   searchSubs(input: string): void,
-  setPopupData(value: any[]): void
+  clear(): void
 }
 
-const ShowSearch: FC<ShowSearchProps> = ({ popupData, searchSubs, setPopupData }) => {
+const ShowSearch: FC<ShowSearchProps> = ({ popupData, searchSubs, clear }) => {
   const [input, setInput] = useState<string>('')
   
   return (
@@ -28,7 +28,7 @@ const ShowSearch: FC<ShowSearchProps> = ({ popupData, searchSubs, setPopupData }
       </button>
       {!!popupData?.length && (
         <>
-          <div className={classes.backdrop} onClick={() => setPopupData([])}/>
+          <div className={classes.backdrop} onClick={clear}/>
           <ul className={classes.list}>
           {popupData.map(item => {
             return <li>
