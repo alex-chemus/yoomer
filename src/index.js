@@ -6,7 +6,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 //import 'open-props/style'
-import 'open-props/normalize'
+//import 'open-props/normalize'
 //import './open-props.min.css'
 import './index.scss'
 

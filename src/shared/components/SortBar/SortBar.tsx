@@ -1,15 +1,29 @@
-import React, { useRef } from 'react'
+import React, { useRef, FC } from 'react'
 import { Properties } from 'csstype'
 import classes from './SortBar.module.scss'
 
 import { ISort } from '@shared/types'
+
+interface BtnProps {
+  sort: ISort,
+  changeSort: (sort: ISort) => void,
+  dyeSortButton: (currentSort: ISort) => Properties
+}
+
+const Btn: FC<BtnProps> = ({ sort, changeSort, dyeSortButton }) => (
+  <button 
+    onClick={() => changeSort(sort)}
+    style={dyeSortButton(sort)}
+    className={classes.btn}
+  > {sort.charAt(0).toUpperCase() + sort.slice(1)} </button>
+)
 
 interface SortBarProps {
   changeSort(sort: ISort): void,
   sort: ISort
 }
  
-const SortBar: React.FC<SortBarProps> = ({ changeSort, sort }) => {
+const SortBar: FC<SortBarProps> = ({ changeSort, sort }) => {
   const panel = useRef<HTMLDivElement>(null)
 
   const dyeSortButton = (currentSort: ISort): Properties => ({
@@ -42,31 +56,11 @@ const SortBar: React.FC<SortBarProps> = ({ changeSort, sort }) => {
       </h6>
 
       <div className={classes.panel} ref={panel}>
-        <button 
-          onClick={() => changeSort('best')}
-          style={dyeSortButton('best')}
-          className={classes.btn}
-        >Best</button>
-        <button 
-          onClick={() => changeSort('hot')}
-          style={dyeSortButton('hot')}
-          className={classes.btn}
-        >Hot</button>
-        <button 
-          onClick={() => changeSort('new')}
-          style={dyeSortButton('new')}
-          className={classes.btn}
-        >New</button>
-        <button 
-          onClick={() => changeSort('rising')}
-          style={dyeSortButton('rising')}
-          className={classes.btn}
-        >Rising</button>
-        <button 
-          onClick={() => changeSort('controversial')}
-          style={dyeSortButton('controversial')}
-          className={classes.btn}
-        >Controversial</button>
+        <Btn changeSort={changeSort} dyeSortButton={dyeSortButton} sort={'best'} />
+        <Btn changeSort={changeSort} dyeSortButton={dyeSortButton} sort={'hot'} />
+        <Btn changeSort={changeSort} dyeSortButton={dyeSortButton} sort={'new'} />
+        <Btn changeSort={changeSort} dyeSortButton={dyeSortButton} sort={'rising'} />
+        <Btn changeSort={changeSort} dyeSortButton={dyeSortButton} sort={'controversial'} />
       </div>
     </nav>
   )

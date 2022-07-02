@@ -9,7 +9,6 @@ interface FlairProps {
 }
 
 const Flair: React.FC<FlairProps> = ({ color, bgcolor, richtext }) => {  
-  console.log('flair: ', color, bgcolor, richtext)
   const getByType = (type: 'text' | 'emoji') => 
     richtext.find((i: any) => i.e === type)
 

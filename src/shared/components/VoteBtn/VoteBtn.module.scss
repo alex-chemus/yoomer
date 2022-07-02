@@ -1,0 +1,17 @@
+@import 'src/index.scss';
+
+.btn {
+  @include btn;
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
+.upvoted {
+  color: var(--accent-color) !important;
+}
+
+.downvoted {
+  color: var(--blue-7) !important;
+}

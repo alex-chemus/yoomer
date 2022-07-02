@@ -5,19 +5,3 @@
     margin-right: var(--size-2);
   }
 }
-
-.vote button {
-  @include btn;
-
-  &[data-rotated] {
-    transform: rotate(180deg);
-  }
-}
-
-.upvoted {
-  color: var(--accent-color) !important;
-}
-
-.downvoted {
-  color: var(--blue-7) !important;
-}

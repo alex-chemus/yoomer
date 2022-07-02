@@ -1,4 +1,6 @@
 @import './open-props.min';
+@import './normalize.min';
+
 // commons:
 
 * {
@@ -84,7 +86,8 @@ a {
   }
 }*/
 
-:root[data-theme="light"] {
+:root[data-theme="light"],
+:root {
   --bg-color-1: var(--gray-0);
   --bg-color-2: var(--gray-2);
   --primary-color-1: #171a1c; //var(--gray-8);
