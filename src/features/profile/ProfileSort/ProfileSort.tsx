@@ -16,6 +16,7 @@ const ProfileSort: React.FC<ProfileSortProps> = ({ changeSort, username, sort })
   const token = useAccessToken()
   const [isMe, setIsMe] = useState(false)
   const panel = useRef<HTMLDivElement>(null)
+  const [headingActive, setHeadingActive] = useState(false)
 
   const acceptData = (data: any) => {
     if (data.name === username) {
@@ -35,8 +36,9 @@ const ProfileSort: React.FC<ProfileSortProps> = ({ changeSort, username, sort })
 
   const slide = (e: React.MouseEvent) => {
     if (window.matchMedia('(max-width: 576px)').matches) {
-      const heading = e.currentTarget as Element
-      heading.classList.toggle(classes.active)
+      //const heading = e.currentTarget as Element
+      //heading.classList.toggle(classes.active)
+      setHeadingActive(prev => !prev)
       if (panel.current!.style.maxHeight) {
         panel.current!.style.maxHeight = ''
       } else {
@@ -45,7 +47,7 @@ const ProfileSort: React.FC<ProfileSortProps> = ({ changeSort, username, sort })
     }
   }
 
-  const params = { ref: panel, dyeSortButton, changeSort, isMe, slide }
+  const params = { ref: panel, dyeSortButton, changeSort, isMe, slide, headingActive }
   return <ShowProfileSort {...params} />
 }
 
