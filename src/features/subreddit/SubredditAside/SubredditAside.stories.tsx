@@ -34,7 +34,7 @@ Default.args = {
       { e: 'text', t: 'Hello' }
     ]
   },
-  descprition: 'This is a mock data',
+  description: 'This is a mock data',
   subscribers: 10000,
   activeCount: 200
 }

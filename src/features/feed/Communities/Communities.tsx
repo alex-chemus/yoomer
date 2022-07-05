@@ -49,7 +49,8 @@ const Communities: React.FC = () => {
 
   useEffect(fetchSubs, [token])
 
-  return <ShowCommunities fetchSubs={fetchSubs} isAll={isAll} subreddits={subreddits} />
+  const params = { fetchSubs, isAll, subreddits }
+  return <ShowCommunities {...params} />
 }
 
 export default Communities

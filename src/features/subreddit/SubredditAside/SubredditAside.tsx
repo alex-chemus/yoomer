@@ -11,13 +11,13 @@ interface SubredditAsideProps {
     color: string,
     richtext: any[]
   },
-  descprition: string,
+  description: string,
   subscribers: number,
   activeCount: number,
 }
 
 const SubredditAside: FC<SubredditAsideProps> = ({ 
-  flair, descprition, subscribers, activeCount
+  flair, description, subscribers, activeCount
 }) => {
   const { subreddit, getDate, hasFlair } = useContext(SubredditContext)!
 
@@ -25,7 +25,7 @@ const SubredditAside: FC<SubredditAsideProps> = ({
     <aside className={classes.sidebar}>
       <section className={classes.aboutSection}>
         <h3>About</h3>
-        <p className={classes.description}> {descprition} </p>
+        <p className={classes.description}> {description} </p>
         <p>Subscribers: <b>{subscribers}</b></p>
         <p>Active users: <b>{activeCount}</b></p>
         <p>Created: <b>{getDate()}</b></p>

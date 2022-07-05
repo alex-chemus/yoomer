@@ -2,20 +2,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { IProfileSortBar } from '../types'
 import IState from '@redux/IState'
-import ProfileComment from '../ProfileComment/ProfileComment'
-import trimProfileComment from '../trimProfileComment'
-import classes from './ProfileFeed.module.scss'
+import ShowProfileFeed from '../ShowProfileFeed/ShowProfileFeed'
 
-import { Observer } from '@shared/components'
 import { useAccessToken } from '@shared/hooks'
-
-import { trimPost, Post } from '@features/post'
-
-/*
-overview -> overview
-posts -> submitted
-comments -> comments
-*/
 
 interface ProfileFeedProps {
   sort: IProfileSortBar,
@@ -25,17 +14,13 @@ interface ProfileFeedProps {
 const ProfileFeed: React.FC<ProfileFeedProps> = ({ sort, username }) => {
   const token = useAccessToken()
   const baseUrl = useSelector((state: IState) => state.baseUrl)
-  const afterRef = useRef<string | null>(null)
+  const afterRef = useRef<string | null>('')
   const [data, setData] = useState<any[]>([])
-  const isAll = useRef(false)
+  const [isAll, setIsAll] = useState(false)
 
   const acceptData = (data: any, shouldReset: boolean) => {
-    //console.log('raw data', data)
-    //console.log(afterRef.current, data.data.after)
-    //console.log('after in response', data.data.after)
-    if (data.data.after === null) isAll.current = true
+    if (data.data.after === null) setIsAll(true)
     afterRef.current = data.data.after
-    //console.log(afterRef.current)
 
     if (shouldReset) {
       setData(data.data.children)
@@ -45,21 +30,18 @@ const ProfileFeed: React.FC<ProfileFeedProps> = ({ sort, username }) => {
         ...data.data.children
       ]))
     }
-
-    /*setData(prevData => ([
-      ...prevData,
-      ...data.data.children
-    ]))*/
   }
 
   const fetchData = (shouldReset: boolean) => {
-    //console.log('token:', token, 'isAll:', isAll.current)
-    if (token && token !== 'error' && (!isAll.current || shouldReset)) {
+    const okToken = token && token !== 'error'
+    const notOver = afterRef.current !== null
+    if (okToken && (notOver || shouldReset)) {
       if (shouldReset) {
-        //setData([])
-        isAll.current = false
+        //isAll.current = false
+        setIsAll(false)
         afterRef.current = null
       }
+
       let newSort = ''
       switch (sort) {
         case 'overview':
@@ -73,7 +55,6 @@ const ProfileFeed: React.FC<ProfileFeedProps> = ({ sort, username }) => {
       }
 
       const after = afterRef.current ? `&after=${afterRef.current}` : ''
-      //console.log('afterRef:', afterRef.current, 'new sort:', newSort)
       fetch(`${baseUrl}/user/${username}/${newSort}.json?raw_json=1${after}`, {
         method: 'GET',
         headers: {
@@ -88,31 +69,10 @@ const ProfileFeed: React.FC<ProfileFeedProps> = ({ sort, username }) => {
 
   useEffect(() => fetchData(true), [token, sort])
 
-  return (
-    <div className={classes.profileFeed}>
-      {/*<button onClick={() => fetchData(false)}>reload</button>*/}
-      {data && data.map((item, i) => {
-        switch (item.kind) {
-          case 't3': // post
-            return <div className={classes.item}>
-              <Post key={i} data={trimPost(item.data)} />
-            </div>
-          
-          case 't1': // comment
-            return <div className={classes.item}>
-              <ProfileComment key={i} data={trimProfileComment(item.data)} />
-            </div>
-        
-          default:
-            return null
-        }
-      })}
-      {!isAll.current && token && data && (
-        /*<button onClick={() => fetchData(false)}>load more</button>*/
-        <Observer onObserve={() => fetchData(false)} logMessage="in profile feed" />
-      )}
-    </div>
-  )
+  const loadMore = () => fetchData(false)
+
+  const params = { data, token, isAll, loadMore }
+  return <ShowProfileFeed {...params} />
 }
 
 export default ProfileFeed

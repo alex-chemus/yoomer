@@ -23,44 +23,9 @@ const Profile: React.FC = () => {
     setSort(str)
   }
 
-  /*const acceptData = (data: any) => {
-    console.log(data)
-  }*/
-
-  /*const fetchUser = () => {
-    console.log(token)
-    if (token && token !== 'error') {
-      fetch(`${baseUrl}/user/${name}/submitted.json?raw_json=1`, {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
-        .then(res => res.json())
-        .then(acceptData)
-        .catch(error => console.log(error))
-    }
-  }*/
-
-  //useEffect(fetchUser, [token])
-
   return (
     <main className={classes.profile}>
       <Nav />
-
-      {/*<div className={classes.subgrid}>
-        <div className={classes.profileSort}>
-          <ProfileSort 
-            changeSort={changeSort} 
-            username={name!} 
-            sort={sort}
-          />
-        </div>
-        
-        <div className={classes.profileFeed}>
-          <ProfileFeed sort={sort} username={name!} />
-        </div>
-      </div>*/}
 
       <section data-container className={classes.content}>
         <section>

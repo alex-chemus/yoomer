@@ -17,13 +17,10 @@ const Search: React.FC = () => {
     callback: acceptData,
     body: new URLSearchParams(`exact=false&include_over_18=true&query=${input}`)
   })
-  return <ShowSearch 
-    searchSubs={searchSubs} 
-    popupData={popupData} 
-    clear={() => setPopupData([])}
-    input={input}
-    setInput={setInput} 
-  />
+
+  const clear = () => setPopupData([])
+  const params = { searchSubs, popupData, input, setInput, clear }
+  return <ShowSearch {...params} />
 }
 
 export default Search
