@@ -14,8 +14,6 @@ interface PostProps {
 }
 
 const Post: React.FC<PostProps> = ({ data }) => {
-  console.log(data)
-
   return (
     <article className={classes.Post}>
       <div className={classes.topContainer}>

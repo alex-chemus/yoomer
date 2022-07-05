@@ -10,3 +10,5 @@ export type IComment = {
   body_html: string,
   likes: boolean | null
 }
+
+export type ICommentSort = 'old' | 'new' | 'top' | 'controversial'

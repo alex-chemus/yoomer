@@ -1,5 +1,5 @@
 import React, { FC, useState, useRef, Dispatch, SetStateAction } from 'react'
-import { Sort } from '../CommentsSection/CommentsSection'
+import { ICommentSort } from '../types'
 import { Properties } from 'csstype'
 import classes from './ShowComments.module.scss'
 
@@ -8,12 +8,12 @@ import CommentField from '../CommentField/CommentField'
 import Comment from '../Comment/Comment'
 
 interface ShowCommentsProps {
-  sort: Sort,
+  sort: ICommentSort,
   comments: any[],
   more: any,
   fetchComments(): void,
   fetchMore(): void,
-  setSort: Dispatch<SetStateAction<Sort>>,
+  setSort: Dispatch<SetStateAction<ICommentSort>>,
   link: string,
   token: string | null
 }
@@ -24,7 +24,7 @@ const ShowComments: FC<ShowCommentsProps> = ({
   const [isActive, setIsActive] = useState(false)
   const panel = useRef<HTMLDivElement>(null)
 
-  const dyeSortButton = (currentSort: Sort): Properties => ({
+  const dyeSortButton = (currentSort: ICommentSort): Properties => ({
     backgroundColor: currentSort === sort ? 'var(--accent-color)' : 'transparent',
     color: currentSort === sort ? 'var(--gray-0)' : ''
   })

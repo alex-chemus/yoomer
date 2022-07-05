@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import trimComment from '../trimComment'
-import { IComment } from '../IComment'
+import { IComment } from '../types'
 import classes from './Comment.module.scss'
 import CommentField from '../CommentField/CommentField'
 import { Properties } from 'csstype'

@@ -3,8 +3,7 @@ import { useSelector } from 'react-redux'
 import IState from '@redux/IState'
 import { useAccessToken } from '@shared/hooks'
 import ShowComments from '../ShowComments/ShowComments'
-
-export type Sort = 'old' | 'new' | 'top' | 'controversial'
+import { ICommentSort } from '../types'
 
 interface CommentsSectionProps {
   subreddit: string,
@@ -19,7 +18,7 @@ const CommentsSection: React.FC<CommentsSectionProps> = ({ link, subreddit }) =>
   const [more, setMore] = useState<any>()
   const mRef = useRef<number | null>(0)
   
-  const [sort, setSort] = useState<Sort>('top')
+  const [sort, setSort] = useState<ICommentSort>('top')
 
   const acceptData = (data: any) => {
     const newComments: any[] = []

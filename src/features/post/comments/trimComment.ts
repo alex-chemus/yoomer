@@ -1,4 +1,4 @@
-import { IComment } from "./IComment";
+import { IComment } from "./types";
 
 const trimComment = (data: any): IComment => {
   return {

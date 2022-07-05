@@ -1,4 +1,3 @@
-import { Properties } from "csstype"
 import React, { useRef } from "react"
 import { useSelector } from "react-redux"
 import IState from '@redux/IState'
