@@ -1,0 +1,40 @@
+@import '@src/index.scss';
+
+.titleContainer {
+  @include flex(space-between, baseline);
+  margin-bottom: var(--size-3);
+  flex-wrap: wrap;
+
+  [data-title] {
+    margin-right: var(--size-3);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+}
+
+.text {
+  margin-bottom: var(--size-3); 
+  overflow: hidden;
+
+  &[data-clamp] {
+    display: -webkit-box;
+    line-clamp: 5;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;  
+    cursor: pointer;
+  }
+
+  code {
+    white-space: normal;
+  }
+
+  a {
+    white-space: normal;
+    word-break: break-word;
+  }
+  
+  p {
+    max-width: 100%;
+  }
+}

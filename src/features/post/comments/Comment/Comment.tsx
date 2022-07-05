@@ -14,19 +14,13 @@ interface CommentProps {
 }
 
 const Comment: React.FC<CommentProps> = ({ data, onSubmit, bgcolor = 'var(--bg-color-1)' }) => {
-  //console.log('raw comment data', data.data)
-  //const [comment, setComment] = useState<IComment>()
-  //const comment = useRef<IComment>(trimComment(data.data))
   const [comment, setComment] = useState<IComment>(trimComment(data.data))
   const [showReplies, setShowReplies] = useState(false)
   const [reply, setReply] = useState(false)
   const divRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    //divRef.current.innerHTML = comment.current.body_html
-    //if (divRef.current) divRef.current.innerHTML = comment.current.body_html
     if (divRef.current) divRef.current.innerHTML = comment.body_html
-    //console.log('comment raw data', data.data)
   }, [])
 
   if (data.kind !== 't1') return null

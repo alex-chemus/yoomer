@@ -14,30 +14,19 @@ interface ShowPostViewProps {
 }
 
 const ShowPostView: FC<ShowPostViewProps> = ({ postData }) => {
-  const credsParams = {
-    subreddit: postData!.subreddit,
-    author: postData!.author,
-    bgcolor: postData!.author_flair_background_color,
-    color: postData!.author_flair_text_color,
-    richtext: postData!.author_flair_richtext
-  }
-
-  const contentParams = {
-    postType: postData!.post_hint,
-    preview: postData!.preview,
-    media: postData!.media,
-    spoiler: postData!.spoiler,
-    over18: postData!.over_18,
-    url: postData!.url
-  }
-
   return postData 
     ? (
       <>
         <Nav />
         <main className={classes.post}>
           <div className={classes.topContainer}>
-            <PostCreds {...credsParams} />
+            <PostCreds 
+              subreddit={postData.subreddit}
+              author={postData.author}
+              bgcolor={postData.author_flair_background_color}
+              color={postData.author_flair_text_color}
+              richtext={postData.author_flair_richtext}
+            />
             <SaveButton saved={postData.saved} name={postData.name} />
           </div>
 
@@ -57,7 +46,14 @@ const ShowPostView: FC<ShowPostViewProps> = ({ postData }) => {
             />
           )}
 
-          <PostContent {...contentParams} />
+          <PostContent
+            postType={postData.post_hint}
+            preview={postData.preview}
+            media={postData.media}
+            spoiler={postData.spoiler}
+            over18={postData.over_18}
+            url={postData.url}
+          />
 
           <div className={classes.vote}>
             <Vote likes={postData.likes} name={postData.name} />

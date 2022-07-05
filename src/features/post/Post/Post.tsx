@@ -5,35 +5,15 @@ import {IPost} from '../types'
 
 import PostCreds from '../PostCreds/PostCreds'
 import SaveButton from '../SaveButton/SaveButton'
-import PostContent from '../postContent/PostContent/PostContent'
 import RedditPost from '../RedditPost/RedditPost'
-
-import { Vote, Flair } from '@shared/components'
+import { Vote } from '@shared/components'
+import PostBody from '../PostBody/PostBody'
 
 interface PostProps {
   data: IPost
 }
 
-/*
-  post_hint: image
-    preview -> images -> [i] -> source -> [url, height, width]
-  post_hint: hosted:video
-    preview -> images -> [i] -> source -> [url, height, width]
-    media -> reddit_video -> [is_gif, fallback_url]
-  post_hint: rich:video
-    preview -> images -> source: preview
-    preview -> reddit_video_preview -> dash_url -> url, width/height
-  post_hint: link
-    preview -> images -> [i] -> source -> [url, height, width]
-  post_hint: undefined
-*/
-
 const Post: React.FC<PostProps> = ({ data }) => {
-  const removeLineClamp = (e: React.MouseEvent) => {
-    const text = e.currentTarget as HTMLElement
-    text.removeAttribute('data-clamp')
-  }
-
   return (
     <article className={classes.Post}>
       <div className={classes.topContainer}>
@@ -54,42 +34,11 @@ const Post: React.FC<PostProps> = ({ data }) => {
           <p data-title style={{color: 'var(--accent-color)'}}> Archived </p>
         )
         : (<>
-          <div className={classes.titleContainer}>
-            <p data-title title={data.title}>
-              {data.url?.length && (data.post_hint === "link" || !data.post_hint)
-                ? <a href={data.url}>
-                  {data.title}
-                </a>
-                : data.title}
-            </p>
-            <Flair 
-              bgcolor={data.link_flair_background_color} 
-              color={data.link_flair_text_color}
-              richtext={data.link_flair_richtext}
-            />
-          </div>
-          {data.selftext_html?.length && (
-            <div 
-              className={classes.text} 
-              dangerouslySetInnerHTML={{__html: data.selftext_html}} 
-              onClick={removeLineClamp} data-clamp
-            />
-          )}
-          <PostContent 
-            postType={data.post_hint} 
-            preview={data.preview} 
-            media={data.media}
-            over18={data.over_18}
-            url={data.url}
-            spoiler={data.spoiler}
-            //img={data.img}
-            gallery={data.gallery_data}
-          />
+          <PostBody data={data} />
           <div className={classes.bottomContainer}>
             <Vote likes={data.likes} name={data.name} />
             
             <div className={classes.linksContainer}>
-              {/*<button onClick={() => console.log(data)}> log info </button>*/}
               <RedditPost permalink={data.permalink} />
               <Link to={`/post/${data.name}`} className={classes.furtherBtn}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
