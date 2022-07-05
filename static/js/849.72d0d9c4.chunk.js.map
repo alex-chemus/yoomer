@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/849.72d0d9c4.chunk.js","mappings":"0HACA,UAAeA,EAAf","sources":["views/PostView.tsx"],"sourcesContent":["import {PostView} from '@features/post'\r\nexport default PostView"],"names":["PostView"],"sourceRoot":""}
