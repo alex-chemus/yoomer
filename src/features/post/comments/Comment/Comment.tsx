@@ -16,14 +16,16 @@ interface CommentProps {
 const Comment: React.FC<CommentProps> = ({ data, onSubmit, bgcolor = 'var(--bg-color-1)' }) => {
   //console.log('raw comment data', data.data)
   //const [comment, setComment] = useState<IComment>()
-  const comment = useRef<IComment>(trimComment(data.data))
+  //const comment = useRef<IComment>(trimComment(data.data))
+  const [comment, setComment] = useState<IComment>(trimComment(data.data))
   const [showReplies, setShowReplies] = useState(false)
   const [reply, setReply] = useState(false)
   const divRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     //divRef.current.innerHTML = comment.current.body_html
-    if (divRef.current) divRef.current.innerHTML = comment.current.body_html
+    //if (divRef.current) divRef.current.innerHTML = comment.current.body_html
+    if (divRef.current) divRef.current.innerHTML = comment.body_html
     //console.log('comment raw data', data.data)
   }, [])
 
@@ -37,32 +39,28 @@ const Comment: React.FC<CommentProps> = ({ data, onSubmit, bgcolor = 'var(--bg-c
     return bgcolor === 'var(--bg-color-1)' ? 'var(--bg-color-2)' : 'var(--bg-color-1)'
   }
 
-  const dyeBtn = () => {
-    return bgcolor === 'var(--bg-color-1)' ? 2 : 1
-  }
-
   return (
     <div className={classes.comment} style={commentStyle}>
       <div className={classes.title}>
-        <h6>{comment.current.author}</h6>
+        <h6>{comment.author}</h6>
         <Flair 
-          bgcolor={comment.current.author_flair_background_color}
-          color={comment.current.author_flair_text_color}
-          richtext={comment.current.author_flair_richtext}
+          bgcolor={comment.author_flair_background_color}
+          color={comment.author_flair_text_color}
+          richtext={comment.author_flair_richtext}
         />
       </div>
       <div ref={divRef} data-mb></div>
       <div data-mb>
         <Vote 
-          likes={comment.current.likes} 
-          name={comment.current.name} 
+          likes={comment.likes} 
+          name={comment.name} 
           bgcolor={bgcolor === 'var(--bg-color-1)' ? 'var(--bg-color-2)' : 'var(--bg-color-1)'}
         />
       </div>
 
       {reply
         ? <CommentField 
-          id={comment.current.name} 
+          id={comment.name} 
           onSubmit={onSubmit} bgcolor={bgcolor === 'var(--bg-color-1)' ? 2 : 1}
         />
         : <button 
@@ -70,7 +68,7 @@ const Comment: React.FC<CommentProps> = ({ data, onSubmit, bgcolor = 'var(--bg-c
             data-btn={bgcolor === 'var(--bg-color-1)' ? 2 : 1}
           >  Reply </button>}
 
-      {comment.current.replies && (
+      {comment.replies && (
         <button 
           onClick={() => setShowReplies(!showReplies)} 
           data-btn={bgcolor === 'var(--bg-color-1)' ? 2 : 1}
@@ -79,7 +77,7 @@ const Comment: React.FC<CommentProps> = ({ data, onSubmit, bgcolor = 'var(--bg-c
 
       {showReplies && (
         <div className={classes.replies}>
-          {comment.current.replies.data.children.map((item: any) => {
+          {comment.replies.data.children.map((item: any) => {
             return <div className={classes.replyComment}>
               <Comment data={item} onSubmit={onSubmit} bgcolor={passBgColor()} />
             </div>
