@@ -14,7 +14,7 @@ interface CommentProps {
 }
 
 const Comment: React.FC<CommentProps> = ({ data, onSubmit, bgcolor = 'var(--bg-color-1)' }) => {
-  const [comment, setComment] = useState<IComment>(trimComment(data.data))
+  const [comment] = useState<IComment>(trimComment(data.data))
   const [showReplies, setShowReplies] = useState(false)
   const [reply, setReply] = useState(false)
   const divRef = useRef<HTMLDivElement>(null)
@@ -71,8 +71,8 @@ const Comment: React.FC<CommentProps> = ({ data, onSubmit, bgcolor = 'var(--bg-c
 
       {showReplies && (
         <div className={classes.replies}>
-          {comment.replies.data.children.map((item: any) => {
-            return <div className={classes.replyComment}>
+          {comment.replies.data.children.map((item: any, i: number) => {
+            return <div className={classes.replyComment} key={i}>
               <Comment data={item} onSubmit={onSubmit} bgcolor={passBgColor()} />
             </div>
           })}

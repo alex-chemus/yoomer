@@ -14,8 +14,8 @@ const ShowCommunities: FC<ShowCommunitiesProps> = ({ fetchSubs, isAll, subreddit
     <div className={classes.communities}>
       <h5 className={classes.heading}>My Subreddits</h5>
       <ul className={classes.list} >
-        {subreddits.map(sub => (
-          <li className={classes.subreddit}>
+        {subreddits.map((sub, i) => (
+          <li className={classes.subreddit} key={i}>
             {sub.icon
               ? <img src={sub.icon} alt="" width={25} height={25} className={classes.icon} />
               : <div className={classes.icon} data-placeholder />}

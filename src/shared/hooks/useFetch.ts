@@ -16,7 +16,7 @@ const useFetch = (options: IUseFetchProps) => {
 
   return (...args: any[]) => {
     if (token && token !== 'error') {
-      const a = options.afterRef?.current ? `&after=${options.afterRef!.current}` : ''
+      const a = options.afterRef?.current ? `&after=${options.afterRef.current}` : ''
       fetch(`${baseUrl}${options.path}?raw_json=1${a}`, {
         method: options.body ? 'POST' : 'GET',
         headers: {

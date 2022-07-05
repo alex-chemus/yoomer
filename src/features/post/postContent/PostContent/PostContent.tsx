@@ -13,11 +13,10 @@ interface PostContentProps {
   over18: boolean,
   spoiler: boolean,
   url?: string | null,
-  img?: string | null,
   gallery?: any | null
 }
 
-const PostContent: React.FC<PostContentProps> = ({ postType, preview, media, over18, url, spoiler, img, gallery }) => {
+const PostContent: React.FC<PostContentProps> = ({ postType, preview, media, over18, url = '', spoiler, gallery }) => {
   const [canShow, setCanShow] = useState<boolean>(over18 && spoiler)
 
   if (over18 && !canShow) {
@@ -63,9 +62,9 @@ const PostContent: React.FC<PostContentProps> = ({ postType, preview, media, ove
 
     case 'link':
       //return <ImageContent images={preview.images} isLink={true} url={url!} />
-      return (
+      if (url) return (
         <div className={classes.contentContainer}>
-          <LinkImage images={preview.images} url={url!} />
+          <LinkImage images={preview.images} url={url} />
         </div>
       )
   }

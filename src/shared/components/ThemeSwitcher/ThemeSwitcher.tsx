@@ -1,23 +1,23 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import classes from './ThemeSwitcher.module.scss'
 
 type Theme = 'light' | 'dark'
 
 const ThemeSwitcher: React.FC = () => {
   const handleSwitch = () => {
-    const root = document.querySelector(':root')
-    const setTheme = (theme: Theme) => root!.getAttribute('data-theme') === theme
+    const root = document.querySelector(':root') as Element
+    const setTheme = (theme: Theme) => root.getAttribute('data-theme') === theme
 
     if (setTheme('light')) 
-      root!.setAttribute('data-theme', 'dark')
+      root.setAttribute('data-theme', 'dark')
     else if (setTheme('dark')) 
-      root!.setAttribute('data-theme', 'light')
+      root.setAttribute('data-theme', 'light')
   }
 
   return (
     <button className={classes.switcher} onClick={handleSwitch}>
       <div className={classes.toggle}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className={classes.sun}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={classes.sun}>
           <circle cx="12" cy="12" r="5"></circle>
           <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor"></line>
           <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor"></line>
@@ -29,7 +29,7 @@ const ThemeSwitcher: React.FC = () => {
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor"></line>
         </svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className={classes.moon}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={classes.moon}>
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
       </div>

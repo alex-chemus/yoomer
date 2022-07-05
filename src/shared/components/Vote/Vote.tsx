@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 //import { State } from '../../utils/types'
 import IState from '@redux/IState'
 import { useSelector } from 'react-redux'
 import classes from './Vote.module.scss'
-import { Properties } from 'csstype'
 
 import { useAccessToken } from '@shared/hooks'
 import VoteBtn from '../VoteBtn/VoteBtn'

@@ -27,7 +27,8 @@ const Subreddit: React.FC = () => {
   }
 
   const getDate = () => {
-    const date = new Date(subData!.created * 1000)
+    if (!subData?.created) return ''
+    const date = new Date(subData.created * 1000)
     return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`
   }
 
@@ -44,7 +45,7 @@ const Subreddit: React.FC = () => {
     || subData?.user_flair_richtext.length !== 0
 
   return <SubredditContext.Provider value={{
-    subreddit: subreddit!,
+    subreddit: subreddit as string,
     getDate, hasFlair
   }}>
     <ShowSubreddit data={subData} />

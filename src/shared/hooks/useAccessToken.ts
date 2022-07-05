@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import IState from '@redux/IState'
 import { fetchAccessToken } from '@redux/actionsCreators'

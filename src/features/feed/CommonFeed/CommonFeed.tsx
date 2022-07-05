@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react'
-import IState from '@redux/IState'
-import { useSelector } from 'react-redux'
 import classes from './CommonFeed.module.scss'
 
 import { Loader, Observer } from '@shared/components'
@@ -15,7 +13,6 @@ interface CommonFeedProps {
 
 const CommonFeed: React.FC<CommonFeedProps> = ({ sort }) => {
   const token = useAccessToken()
-  const baseUrl = useSelector((state: IState) => state.baseUrl)
 
   const [posts, setPosts] = useState<IPost[]>([])
   const afterRef = useRef<string>('')
@@ -51,11 +48,11 @@ const CommonFeed: React.FC<CommonFeedProps> = ({ sort }) => {
     ? (
         <div className={classes.CommonFeed}>
           {posts && posts.map((post, i) => {
-            return <div className={classes.post}>
-              <Post key={i} data={post} />
+            return <div className={classes.post} key={i}>
+              <Post data={post} />
             </div>
           })}
-          {posts && token && <Observer onObserve={() => fetchPosts(false)} logMessage="in common feed" />}
+          {posts && token && <Observer onObserve={() => fetchPosts(false)} />}
         </div>
       )
     : <div className={classes.CommonFeed} data-center>

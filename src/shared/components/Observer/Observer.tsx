@@ -2,10 +2,9 @@ import React, { useEffect, useRef } from 'react'
 
 interface ObserverProps {
   onObserve: any,
-  logMessage: string
 }
 
-const Observer: React.FC<ObserverProps> = ({ onObserve, logMessage }) => {
+const Observer: React.FC<ObserverProps> = ({ onObserve }) => {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -17,7 +16,7 @@ const Observer: React.FC<ObserverProps> = ({ onObserve, logMessage }) => {
       onObserve()
       //console.log('observed', logMessage)
     }, options)
-    observer.observe(ref.current!)
+    if (ref.current) observer.observe(ref.current)
   }, [])
 
   return <div ref={ref}></div>

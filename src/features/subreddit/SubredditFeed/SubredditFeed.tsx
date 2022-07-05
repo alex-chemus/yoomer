@@ -13,7 +13,9 @@ interface SubredditFeedProps {
 }
 
 const SubredditFeed: React.FC<SubredditFeedProps> = ({ sort }) => {
+  /* eslint-disable */
   const { subreddit } = useContext(SubredditContext)!
+  /* eslint-enable */
   const token = useAccessToken()
 
   const [posts, setPosts] = useState<IPost[]>([])
@@ -46,13 +48,12 @@ const SubredditFeed: React.FC<SubredditFeedProps> = ({ sort }) => {
     ? (
       <section>
         {posts && posts.map((post, i) => {
-          return <div className={classes.postWrapper}>
-            <Post key={i} data={post} />
+          return <div className={classes.postWrapper} key={i}>
+            <Post data={post} />
           </div>
         })}
         {posts && token && <Observer 
           onObserve={() => fetchPosts(false)}
-          logMessage="in subreddit feed"
         />}
       </section>
     )

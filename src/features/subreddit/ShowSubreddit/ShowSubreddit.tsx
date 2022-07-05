@@ -16,29 +16,16 @@ interface ShowSubredditProps {
 const ShowSubreddit: FC<ShowSubredditProps> = ({ data }) => {
   const [sort, setSort] = useState<ISort>('best')
 
-  const headerParams = {
-    banner: data!.banner_background_image,
-    icon: data!.community_img || data!.icon_img,
-    title: data!.title,
-    subscribed: data!.user_is_subscriber
-  }
-
-  const asideParams = {
-    flair: {
-      bgcolor: data!.user_flair_background_color,
-      color: data!.user_flair_text_color,
-      richtext: data!.user_flair_richtext
-    },
-    description: data!.public_description,
-    subscribers: data!.subscribers,
-    activeCount: data!.active_user_count
-  }
-
   return data
     ? (
       <main>
         <Nav />
-        <SubredditHeader {...headerParams} />
+        <SubredditHeader
+          banner={data.banner_background_color}
+          icon={data.community_img || data.icon_img}
+          title={data.title}
+          subscribed={data.user_is_subscriber}
+        />
 
         <section className={classes.contentGrid} data-container>
           <section className={classes.mainContent}>
@@ -48,7 +35,16 @@ const ShowSubreddit: FC<ShowSubredditProps> = ({ data }) => {
             <SubredditFeed sort={sort} />
           </section>
 
-          <SubredditAside {...asideParams} />
+          <SubredditAside 
+            flair={{
+              bgcolor: data.user_flair_background_color,
+              color: data.user_flair_text_color,
+              richtext: data.user_flair_richtext
+            }}
+            description={data.public_description}
+            subscribers={data.subscribers}
+            activeCount={data.active_user_count}
+          />
         </section>
       </main>
     )

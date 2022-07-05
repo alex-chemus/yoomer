@@ -6,11 +6,10 @@ import ShowComments from '../ShowComments/ShowComments'
 import { ICommentSort } from '../types'
 
 interface CommentsSectionProps {
-  subreddit: string,
   link: string
 }
 
-const CommentsSection: React.FC<CommentsSectionProps> = ({ link, subreddit }) => {
+const CommentsSection: React.FC<CommentsSectionProps> = ({ link }) => {
   const token = useAccessToken()
   const baseUrl = useSelector((state: IState) => state.baseUrl)
 
@@ -51,7 +50,7 @@ const CommentsSection: React.FC<CommentsSectionProps> = ({ link, subreddit }) =>
 
   const fetchMore = () => {
     if (token && token !== 'error' && typeof mRef.current === 'number') {
-      const params = `raw_json=1&comment=${more.data.children[mRef.current!]}&sort=${sort}`
+      const params = `raw_json=1&comment=${more.data.children[mRef.current]}&sort=${sort}`
       mRef.current = mRef.current < more.data.children.length -1 
         ? mRef.current + 1
         : null

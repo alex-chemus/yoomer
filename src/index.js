@@ -22,6 +22,7 @@ const store = createStore(reducer, composeEnhancers(
 ))
 
 function generateString(length) {
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";  
   let result = ' ';
   const charactersLength = characters.length;
   for ( let i = 0; i < length; i++ ) {
@@ -34,7 +35,7 @@ function generateString(length) {
 const href = window.location.href
 // если нет рефреш токена, редиректнуть на аус пейдж
 // однако если вернуло со страницы редиректа, снова редиректит
-if (!localStorage.getItem('refresh_token') && !/\/yoomer\/\#\/redirected/.test(href)) {
+if (!localStorage.getItem('refresh_token') && !/\/yoomer\/#\/redirected/.test(href)) {
 //if (!localStorage.getItem('refresh_token') && path !== '/yoomer/#/redirected') {
 //if (!localStorage.getItem('access_token')) { // update: теперь проверяется акцес токен
   const { clientId, redirectUri } = store.getState()

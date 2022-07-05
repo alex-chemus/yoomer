@@ -32,7 +32,7 @@ const ShowProfileFeed: FC<ShowProfileFeedProps> = ({ data, token, isAll, loadMor
         }
       })}
       {!isAll && token && data && (
-        <Observer onObserve={loadMore} logMessage="in profile feed" />
+        <Observer onObserve={loadMore} />
       )}
     </div>
   )

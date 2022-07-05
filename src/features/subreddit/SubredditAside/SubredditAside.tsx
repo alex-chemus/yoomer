@@ -19,7 +19,9 @@ interface SubredditAsideProps {
 const SubredditAside: FC<SubredditAsideProps> = ({ 
   flair, description, subscribers, activeCount
 }) => {
+  /* eslint-disable */
   const { subreddit, getDate, hasFlair } = useContext(SubredditContext)!
+  /* eslint-enable */
 
   return (
     <aside className={classes.sidebar}>
@@ -50,7 +52,7 @@ const SubredditAside: FC<SubredditAsideProps> = ({
 
       <div className={classes.rulesWrapper}>
         <h3>Rules</h3>
-        <Rules subreddit={subreddit!} />
+        <Rules subreddit={subreddit} />
       </div>
     </aside>
   )

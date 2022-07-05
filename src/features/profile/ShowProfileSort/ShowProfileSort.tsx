@@ -20,8 +20,8 @@ const ShowProfileSort: FC<ShowProfileSortProps> = ({
       <h6 onClick={slide} className={headingActive ? classes.active : ''}>
         Show
         <span data-mobile>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="12" y1="19" x2="12" y2="5" stroke='currentColor'></line>'
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5" stroke='currentColor'></line>
             <polyline points="5 12 12 5 19 12" stroke="currentColor"></polyline>
           </svg>
         </span>

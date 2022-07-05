@@ -6,11 +6,13 @@ import { MockRedux } from '@shared/components'
 import { MemoryRouter } from 'react-router-dom'
 
 function withSort(Component: FC<any>) {
-  return (props: any) => {
+  const NewComponent: FC<any> = (props: any) => {
     const [sort, setSort] = useState<ICommentSort>('top')
 
     return <Component sort={sort} setSort={setSort} {...props} />
   }
+
+  return NewComponent
 }
 
 const NewShowComments = withSort(ShowComments)

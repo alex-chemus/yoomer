@@ -11,7 +11,9 @@ interface SubredditHeaderProps {
 }
 
 const SubredditHeader: FC<SubredditHeaderProps> = ({ banner, icon, title, subscribed }) => {
+  /* eslint-disable */
   const { subreddit } = useContext(SubredditContext)!
+  /* eslint-enable */
 
   return (
     <header className={classes.header}>
@@ -32,7 +34,7 @@ const SubredditHeader: FC<SubredditHeaderProps> = ({ banner, icon, title, subscr
             <p>r/{subreddit}</p>
           </div>
         </div>
-        <Subscription isSubbed={subscribed} subreddit={subreddit!} />
+        <Subscription isSubbed={subscribed} subreddit={subreddit} />
       </div>
     </header>
   )

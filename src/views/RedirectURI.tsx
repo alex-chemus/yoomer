@@ -3,18 +3,10 @@ import { useSearchParams, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import IState from '@redux/IState'
 
-/*function utf8_to_b64( str: string ) {
-  return window.btoa(unescape(encodeURIComponent( str )));
-}*/
-
 const RedirectURI: React.FC = () => {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
 
-  //alert('redirected')
-
-  const uri = useSelector((state: IState) => state.redirectUri)
-  const clientId = useSelector((state: IState) => state.clientId)
   const accessApi = useSelector((state: IState) => state.accessApi)
   //const clientSecret = useSelector((state: State) => state.clientSecret)
   const dispatch = useDispatch()

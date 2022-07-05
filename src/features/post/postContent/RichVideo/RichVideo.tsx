@@ -9,13 +9,14 @@ const RichVideo: React.FC<RichVideoProps> = ({ video }) => {
   const divRef = useRef<HTMLDivElement>(null)
 
   function decodeHtml(html: string) {
-    var txt = document.createElement("textarea");
+    const txt = document.createElement("textarea");
     txt.innerHTML = html;
     return txt.value;
   }
 
   useEffect(() => {
-    divRef.current!.innerHTML = decodeHtml(video.html)
+    if (divRef.current) 
+      divRef.current.innerHTML = decodeHtml(video.html)
   }, [video])
 
   return <div ref={divRef} style={{

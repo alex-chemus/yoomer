@@ -17,17 +17,17 @@ const CommentField: React.FC<CommentFieldProps> = ({ id, onSubmit, bgcolor = 1 }
   const ref = useRef<HTMLTextAreaElement>(null)
 
   const submit = () => {
-    if (token && token !== 'error') {
+    if (token && token !== 'error' && ref.current) {
       fetch(`${baseUrl}/api/comment`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`
         },
-        body: new URLSearchParams(`thing_id=${id}&text=${ref.current!.value}`)
+        body: new URLSearchParams(`thing_id=${id}&text=${ref.current.value}`)
       })
         .then(res => res.json())
         .then(() => {
-          ref.current!.value = ''
+          if (ref.current) ref.current.value = ''
           onSubmit()
         })
         .catch(error => console.log(error))

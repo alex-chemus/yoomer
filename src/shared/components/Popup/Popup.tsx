@@ -1,4 +1,4 @@
-import React, { FC, useState, ReactNode } from 'react'
+import React, { FC, useState } from 'react'
 import classes from './Popup.module.scss'
 import { Link, useNavigate } from 'react-router-dom'
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher'
@@ -15,7 +15,7 @@ interface BtnProps {
 
 const BackBtn: FC<BtnProps> = ({ onClick }) => (
   <button className={classes.backBtn} onClick={onClick}>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <line x1="5" y1="12" x2="19" y2="12"></line>
       <polyline points="12 5 19 12 12 19"></polyline>
     </svg>
@@ -24,7 +24,7 @@ const BackBtn: FC<BtnProps> = ({ onClick }) => (
 
 const HomeBtn: FC<BtnProps> = ({ onClick }) => (
   <button className={classes.home} onClick={onClick}>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor"></path>
       <polyline points="9 22 9 12 15 12 15 22" stroke="currentColor"></polyline>
     </svg>

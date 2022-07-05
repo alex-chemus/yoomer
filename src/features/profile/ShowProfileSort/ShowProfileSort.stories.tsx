@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import ShowProfileSort from './ShowProfileSort'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Properties } from 'csstype'

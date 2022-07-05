@@ -52,13 +52,13 @@ const ImageContent: React.FC<ImageContentProps> = ({ images, isLink, url, img, a
     //console.log('a carousel')
     return (
       <Carousel>
-        {images.map((img: any) => {
+        {images.map((img: any, i: number) => {
           const resolutions = img.variants.gif 
             ? img.variants.gif.resolutions
             : img.resolutions
           const resolution = resolutions[resolutionType] || resolutions[resolutions.length-1]
           
-          return <div>
+          return <div key={i}>
             <img src={resolution.url} alt={alt} />
           </div>
         })}

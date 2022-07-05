@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 //import { ThemeSwitcher } from '@shared/components'
 import Popup from '../Popup/Popup'

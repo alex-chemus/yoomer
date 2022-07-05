@@ -29,15 +29,15 @@ const ShowComments: FC<ShowCommentsProps> = ({
     color: currentSort === sort ? 'var(--gray-0)' : ''
   })
 
-  const slide = (e: React.MouseEvent) => {
-    if (window.matchMedia('(max-width: 576px)').matches) {
+  const slide = () => {
+    if (window.matchMedia('(max-width: 576px)').matches && panel.current) {
       //const heading = e.currentTarget as Element
       //heading.classList.toggle(classes.active)
       setIsActive(prev => !prev)
-      if (panel.current!.style.maxHeight) {
-        panel.current!.style.maxHeight = ''
+      if (panel.current.style.maxHeight) {
+        panel.current.style.maxHeight = ''
       } else {
-        panel.current!.style.maxHeight = panel.current!.scrollHeight + 'px' //'200px'
+        panel.current.style.maxHeight = panel.current.scrollHeight + 'px' //'200px'
       }
     }
   }
@@ -50,11 +50,11 @@ const ShowComments: FC<ShowCommentsProps> = ({
         </div>
 
         <div className={classes.sortBar}>
-          <h6 onClick={e => slide(e)} className={isActive ? classes.active : ''}>
+          <h6 onClick={slide} className={isActive ? classes.active : ''}>
             Sort by
             <span data-mobile>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="19" x2="12" y2="5" stroke='currentColor'></line>'
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="12" y1="19" x2="12" y2="5" stroke='currentColor'></line>
                 <polyline points="5 12 12 5 19 12" stroke="currentColor"></polyline>
               </svg>
             </span>
@@ -87,12 +87,12 @@ const ShowComments: FC<ShowCommentsProps> = ({
           </div>
         </div>
 
-        {comments.map(comment => {
-          return <div className={classes.comment}>
+        {comments.map((comment, i) => {
+          return <div className={classes.comment} key={i}>
             <Comment data={comment} onSubmit={fetchComments} />
           </div>
         })}
-        {more && token && <Observer onObserve={fetchMore} logMessage="in comments section" />}
+        {more && token && <Observer onObserve={fetchMore} />}
       </section>
     )
     : <Loader />

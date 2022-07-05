@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { IProfileSortBar } from '../types'
 import { Properties } from 'csstype'
-import classes from './ProfileSort.module.scss'
 
 import { useAccessToken, useFetch } from '@shared/hooks'
 import ShowProfileSort from '../ShowProfileSort/ShowProfileSort'
@@ -34,15 +33,15 @@ const ProfileSort: React.FC<ProfileSortProps> = ({ changeSort, username, sort })
     color: currentSort === sort ? 'var(--gray-0)' : 'var(--primary-color-1)'
   })
 
-  const slide = (e: React.MouseEvent) => {
-    if (window.matchMedia('(max-width: 576px)').matches) {
+  const slide = () => {
+    if (window.matchMedia('(max-width: 576px)').matches && panel.current) {
       //const heading = e.currentTarget as Element
       //heading.classList.toggle(classes.active)
       setHeadingActive(prev => !prev)
-      if (panel.current!.style.maxHeight) {
-        panel.current!.style.maxHeight = ''
+      if (panel.current.style.maxHeight) {
+        panel.current.style.maxHeight = ''
       } else {
-        panel.current!.style.maxHeight = panel.current!.scrollHeight + 'px' //'200px'
+        panel.current.style.maxHeight = panel.current.scrollHeight + 'px' //'200px'
       }
     }
   }

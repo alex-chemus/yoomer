@@ -61,7 +61,6 @@ const ShowPostView: FC<ShowPostViewProps> = ({ postData }) => {
           </div>
 
           <CommentsSection 
-            subreddit={postData.subreddit}
             link={postData.name}
           />
         </main>
