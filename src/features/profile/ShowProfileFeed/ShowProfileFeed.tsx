@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { trimPost, Post } from '@features/post'
 import ProfileComment from '../ProfileComment/ProfileComment'
 import trimProfileComment from "../trimProfileComment";
-import classes from './ShowProfileFeed.scss'
+import classes from './ShowProfileFeed.module.scss'
 import { Observer } from '@shared/components'
 
 interface ShowProfileFeedProps {
