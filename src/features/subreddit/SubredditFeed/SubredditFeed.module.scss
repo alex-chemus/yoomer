@@ -3,3 +3,9 @@
 .postWrapper {
   margin-bottom: var(--size-5);
 }
+
+.loaderWRapper {
+  height: 100%;
+  width: 100%;
+  @include flex(center, center);
+}

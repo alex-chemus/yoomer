@@ -66,9 +66,12 @@ const ShowPostView: FC<ShowPostViewProps> = ({ postData }) => {
         </main>
       </>
     ) 
-    : <main className={classes.post} data-center data-container>
-      <Loader />
-    </main>
+    : <div>
+      <Nav />
+      <main className={classes.loaderWrapper} data-container>
+        <Loader />
+      </main>
+    </div>
 }
 
 export default ShowPostView

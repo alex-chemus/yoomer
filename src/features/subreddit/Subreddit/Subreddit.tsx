@@ -1,16 +1,10 @@
 import React, { useEffect, useState, createContext } from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import { ISubreddit } from "../types"
+import { ISubreddit, ISubredditContext } from "../types"
 import trimSubreddit from "../trimSubreddit"
 
 import { useAccessToken, useFetch } from '@shared/hooks'
 import ShowSubreddit from "../ShowSubreddit/ShowSubreddit"
-
-interface ISubredditContext {
-  getDate(): string,
-  hasFlair(): boolean,
-  subreddit: string
-}
 
 export const SubredditContext = createContext<ISubredditContext | null>(null)
 

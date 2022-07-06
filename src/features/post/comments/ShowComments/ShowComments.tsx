@@ -95,7 +95,9 @@ const ShowComments: FC<ShowCommentsProps> = ({
         {more && token && <Observer onObserve={fetchMore} />}
       </section>
     )
-    : <Loader />
+    : <div className={classes.loaderWrapper}>
+      <Loader />
+    </div>
 }
 
 export default ShowComments

@@ -28,3 +28,8 @@ export const Default = Template.bind({})
 Default.args = {
   rules: getRules(5)
 }
+
+export const NoData = Template.bind({})
+NoData.args = {
+  rules: null
+}

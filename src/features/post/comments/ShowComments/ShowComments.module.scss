@@ -58,3 +58,7 @@
     margin-bottom: var(--size-4);
   }
 }
+
+.loaderWrapper {
+  @include flex(center, center);
+}

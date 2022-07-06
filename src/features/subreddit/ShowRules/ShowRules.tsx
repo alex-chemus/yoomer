@@ -26,7 +26,9 @@ const ShowRules: FC<ShowRulesProps> = ({ rules, toggleRule }) => {
       }</ul>
     )
   } else {
-    return <Loader />
+    return <div className={classes.loaderWrapper}>
+      <Loader />
+    </div>
   }
 }
 

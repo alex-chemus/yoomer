@@ -14,7 +14,7 @@ interface SubredditFeedProps {
 
 const SubredditFeed: React.FC<SubredditFeedProps> = ({ sort }) => {
   /* eslint-disable */
-  const { subreddit } = useContext(SubredditContext)!
+  const { subreddit = '' } = useContext(SubredditContext)!
   /* eslint-enable */
   const token = useAccessToken()
 
@@ -57,7 +57,9 @@ const SubredditFeed: React.FC<SubredditFeedProps> = ({ sort }) => {
         />}
       </section>
     )
-    : <Loader />
+    : <div className={classes.loaderWrapper}>
+      <Loader />
+    </div>
 }
 
 export default SubredditFeed

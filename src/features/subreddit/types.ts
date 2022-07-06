@@ -20,3 +20,9 @@ export interface IRule {
   short_name: string,
   description_html: string
 }
+
+export interface ISubredditContext {
+  getDate(): string,
+  hasFlair(): boolean,
+  subreddit: string
+}
