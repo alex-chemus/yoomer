@@ -11,8 +11,11 @@ const Gallery: React.FC<GalleryProps> = ({ imgs }) => {
     {imgs.map((src, i) => (
       <div key={i}>
         <img src={src} alt="Image Loading Error" style={{
-          'max-height': '70vh',
-          'object-fit': 'contain'
+          //'max-height': '70vh',
+          //'object-fit': 'contain'
+          'width': '100%',
+          'object-fit': 'cover',
+          'aspect-ratio': '1'
         } as Properties} />
       </div>
     ))}
